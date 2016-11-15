@@ -1,0 +1,29 @@
+\section{The dynamic EM modeling in nucleation phase}
+\label{sec:dynamic_modeling}
+In this section, we discuss the analysis of dynamic stress if the temperature $T$ is time-dependent.We assume that the current density doesn't change, namely, $G_i=\frac{Z^*e\rho}{\Omega}j$ are constant. Now we re-write $\sigma(x,t)$ as $\sigma(x,t,D_{t})$. We can derive the EM stress build-up expression indirectly based on the following theorem.
+
+Theorem 1: Based on stress build-up Equation \eqref{eq:basic_em_s} with constant values for $D_t$, let $\sigma(x,t,D_{1})$ and $\sigma(x,t,D_{2})$ be the solution for the equation with $D_t=D_{1}$ and $D_t=D_{2}$ considering the same initial and boundary conditions. Then we have $\sigma(x,t,D_{2})=\sigma(x,\frac{D_{2}}{D_{1}}t,D_{1})$.
+
+Proof: re-write $D_t$ as $D_t(T(t))=\frac{D_0\exp(-\frac{E_a}{kT(t)})B\Omega}{kT(t)}$. Considering Equation \eqref{eq:basic_em_s}, the varying temperature has merely influence on $D_t$. Assuming that $\sigma(x,t,D_{1})$ is a known solution, we obtain $\frac{\partial \sigma(x,t,D_{t1})}{\partial t}=\frac{\partial }{\partial x}[D_{t1}(\frac{\partial \sigma(x,t,D_{t1})}{\partial x}+G)]$. If $\sigma(x,t,D_{t2})=\sigma(x,\frac{D_{t2}}{D_{t1}}t,D_{t1})$ , we have $\frac{\partial \sigma(x,t,D_{t2})}{\partial t}=\frac{D_{t2}}{D_{t1}}\frac{\partial \sigma(x,\frac{D_{t2}}{D_{t1}}t,D_{t1})}{\partial t}$ and $\frac{\partial \sigma(x,t,D_{t2})}{\partial x}=\frac{\partial \sigma(x,\frac{D_{t2}}{D_{t1}}t,D_{t1})}{\partial x}$, which leads to $\frac{\partial \sigma(x,t,D_{t2})}{\partial t}=\frac{\partial }{\partial x}[D_{t2}(\frac{\partial \sigma(x,t,D_{t2})}{\partial x}+G)]$. Thus, $\sigma(x,t,D_{2})$ is the solution for equation with $D=D_{2}$, also.
+
+Theorem 1 tells us that the stress build-up processes in the interconnect are independent of the value of $T(t)$ in Equation \eqref{eq:solution_odd} and \eqref{eq:solution_even}. In detail, the stress over a period time $\Delta t_1$ under temperature $T_1$ will be equal to the stress over a period time $\frac{D_t(T_2)}{D_t(T_1)}\Delta t_1$ under temperature $T_2$. Thus, it is possible to use the expressions for stress build-up under constant temperature to describe the stress evolution under time-varying thermal conditions. We assume that $D_t(T(t))$ can be partitioned into j small time period:
+
+\begin{equation} \label{eq:D_temp}
+D_t(T(t))=\left\{
+\begin{aligned}
+D_{1},&{0\leq t\leq \Delta t_1} \\
+D_{2},&{\Delta t_1<t\leq \Delta t_1+\Delta t_2} \\
+...,\\
+D_{j},&{\sum\limits_{m=1}^{j-1} \Delta t_m<t\leq\sum\limits_{m=1}^{j} \Delta t_m}&{j=2,3,...}
+\end{aligned}
+\right.
+\end{equation}
+
+$D_i$ is the average value over the time interval $(\sum\limits_{m=1}^{k-1} \Delta t_m, \sum\limits_{m=1}^{k} \Delta t_m]$. If the interval is small enough, $D_k$ can stand for the value of diffusivity at the specific time $t_k$. Here, we summary the dynamic stress with time-varying temperature by $\sigma_i(x,t,D_t)$. At current time $t_k=\sum\limits_{m=1}^{k-1} \Delta t_m$, we have:
+\begin{equation} \label{eq:D_temp_sigma}
+\sigma_i (x,\sum\limits_{m=1}^{k-1} \Delta t_m,D_k )=\sigma_i(x,\sum\limits_{m=1}^{k-1} \frac{D_m}{D_{1}}\Delta t_m,D_{1})
+\end{equation}
+where $i=1,2,...$ and $\sigma_i(x,t,D)$ is given by \eqref{eq:solution_odd} and \eqref{eq:solution_even}. As $\Delta t_m \to dt, D_k \to D_t(T(t))$, we obtained the integral version for the stress build up function:
+\begin{equation} \label{eq:D_temp_sigma_2}
+\sigma_i (x,t,D_j )=\sigma_i(x,\frac{1}{D_{1}}\int_0^t{D_tdt},D_{1})
+\end{equation}

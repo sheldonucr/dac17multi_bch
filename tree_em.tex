@@ -1,0 +1,115 @@
+\documentclass[twocolumn,journal]{IEEEtran}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{url}
+
+
+%\usepackage[usenames,dvips]{color}
+%\usepackage{graphicx}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{multirow}
+%\usepackage{subfig}
+\usepackage{psfig}
+%\usepackage{booktabs}
+\usepackage{epstopdf}
+%\usepackage{graphicx}
+%\usepackage[usenames]{color}
+%\usepackage{amssymb,amsmath}
+%\usepackage{authblk}
+%\usepackage{url}
+%% \usepackage{mathdots}
+\usepackage{arydshln}
+\usepackage{pifont}
+\usepackage{cite}
+
+\usepackage{color}
+
+
+
+
+\newtheorem{theory}{Theorem}
+\newtheorem{define}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+
+
+\renewcommand{\baselinestretch}{0.99}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+\title{Physics-Based Analytical Modeling for Electromigration Reliability For Straigtline Multi-Branch Interconnect Trees}
+
+\author{
+Jiangtao Peng, Hai-Bao Chen
+
+\thanks{
+%\textbf{Jiangtao Peng} is studying in the Department of Micro/Nano-electronics, Shanghai Jiao Tong University, Shanghai, China. She is devoted to electromigration reliability and smart building now.
+%
+%\textbf{Hai-Bao Chen} received the B.S. degree in information and computing sciences, and the M.S. and Ph.D. degrees in applied mathematics from Xi¡¯an Jiaotong University, Xi¡¯an, China, in 2006, 2008, and 2012, respectively. He then joined Huawei Technologies, where he focused on cloud computing and big data. He was a Post-Doctoral Research Fellow with Electrical Engineering Department, University of California, Riverside, Riverside, CA, USA, from 2013 to 2014. He is currently an Assistant Professor in the Department of Micro/Nano-electronics, Shanghai Jiao Tong University, Shanghai, China. His current research interests include model order reduction, system and control theory, circuit simulation, cloud computing and big data, and electromigration reliability. Dr. Chen has authored or co-authored more than 25 papers in scientific journals and conference proceedings. He received one Best Paper Award nomination from Asia and South Pacific Design Automation Conference (ASP-DAC) in 2015.
+} }
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+  Thermal effects has become a recent major research for being a
+  limiting factor in high performance circuit design. Due to the
+  strong thermal-dependence of leakage power, circuit performance, IC
+  package cost and reliability, changing temperature has been an
+  emerging concern on electromigration (EM) in conducting metal lines
+  with complex IC structures. However, an average temperature in the
+  EM failure process is commonly used in most existing EM models and
+  analytic techniques considering dynamic temperature are mainly
+  focused on a single metal wire. In this paper, we propose an
+  analytic method to calculate the stress evolution considering
+  time-varying temperature effects during the void nucleation phase
+  for some multi-branch interconnect trees, including the
+  straight-line there-terminal wires, the T-shaped four-terminal wires
+  and the cross-shaped five-terminal wires. The proposed closed-form
+  expression can be used to calculate the hydrostatic stress evolution
+  with time-varying temperature. Experiment results show that the
+  obtained analytic solutions match well with the numerical results
+  calculated using COMSOL and thus the proposed models can be used in
+  traditional EM reliability analysis tools.
+\end{abstract}
+
+\vspace{0.15in}
+%\begin{keywords}
+electromigration, multi-branch interconnect trees, analytical model,
+time-varying temperature, stress evolution.
+%\end{keywords}
+
+
+\input introduction.tex
+\input analytical_expressions.tex
+\input dynamic_modeling.tex
+\input experimental_results.tex
+
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this paper, we have proposed a new analysis methods for
+multi-terminal interconnect tree considering changing temperature. The
+new time-varying model show an excellent agreement with the detailed
+numerical analysis obtained from COMSOL.
+
+
+
+
+\bibliographystyle{ieeetr}
+
+\bibliography{../../bib/reliability.bib,../../bib/reliability_papers,../../bib/stochastic,../../bib/simulation,../../bib/modeling,../../bib/reduction,../../bib/misc,../../bib/architecture,../../bib/mscad_pub,../../bib/thermal_power}
+%\bibliography{../../../bib/reliability.bib,reliability_papers,../../../bib/stochastic,../../../bib/simulation,../../../bib/modeling,../../../bib/reduction,../../../bib/misc,../../../bib/architecture,../../../bib/mscad_pub,../../../bib/thermal_power}
+
+
+\end{document}
