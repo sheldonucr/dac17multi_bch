@@ -1,4 +1,5 @@
-\section{Analytical expressions for dynamic EM stress of multi-branch}
+\section{Dynamic Temperature-Aware Reliability Modeling}
+\subsection{Analytical expressions for dynamic EM stress of multi-branch}
 \label{sec:analytical_expressions}
 In this section, we present our analytical solution to the multi-branch interconnect trees. We aimed at the general term of stress evolution. For multi-branch interconnect tree, the stress evolution is still governed by the Korhonen¡¯s equation \eqref{eq:basic_em_s}. In order to analysis the multi-branch interconnect tree, we break it into a number of simple single-segment wires, shown in Fig.\ref{fig:InterconnectTree}. They have different numbers of segments which are connected through the middle node ``0". Each port and branch is identified by number. The current densities in each segment may not be same, which is determined by the rest if the circuit. Then, based on the port 0, we establish rectangular coordinates indicating the location of each branch to induce further solution. The continuity at the joints (port 0) of connected wire segments should be noted.
 
@@ -112,3 +113,5 @@ where $\texttt{erfc}\{x\}=\frac{2}{\sqrt{\pi}}\int_x^{+\infty}e^{-t^2}dt$ is the
  \end{split}
  \end{equation}
 where $G_s=\sum_{i=0}^{\lfloor\frac{k}{2}\rfloor}G_{2i+1}-\sum_{j=0}^{\lfloor\frac{k}{2}\rfloor-1}G_{2j+2}$
+
+
