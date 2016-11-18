@@ -45,7 +45,7 @@
 
 \begin{document}
 %\title{Physics-Based Analytical Modeling for Electromigration Reliability in Multi-Branch Interconnect Trees Considering Time-Varying Temperature}
-\title{Physics-Based Analytical Modeling of Electromigration Reliability for Multi-Branch Interconnect Trees}
+\title{Physics-Based Analytical Modeling of Electromigration Reliability for Multi-Segment Interconnect Wires}
 %\title{Dynamic Temperature-Aware Reliability Modeling for Multi-Branch Interconnect Trees}
 
 
@@ -64,37 +64,33 @@ Jiangtao Peng, Hai-Bao Chen, Taeyoung Kim, Hengyang Zhao, Sheldon X.-D. Tan
 
 \begin{abstract}
 
+  Electromigration (EM) is the major concern for the VLSI back end of
+  the line (BEOL) reliabiliity. For EM modeling and assessment, one
+  important problem is to perform fast EM time to failure analysis for
+  practical interconnect layouts such as clock and power/ground
+  networks consisting of many multi-segment wires.  However, existing
+  EM modeling and analysis techniques are mainly developed for a
+  single wire. Although there are some early effects to resolve this
+  issue, but there is no general analytic and compact model developed
+  to estimate the EM-induced stress evolution, which is required to
+  predict the time to failure. In this paper, we propose a new analyic
+  expression hydrstatic stress calculation for general multi-segment
+  interconnect wire with mutiple terminals. The new method is based on
+  the Laplace transformation method on the Korhonen's equation with
+  blocked atom flux boundary conditons. The analytical solutions in
+  terms of a set of auxiliary basis functions using the complementary
+  error function agree well with the numerical analysis results. Our
+  analysis further demonstrates that using the first two dominant
+  basis functions can lead to xx\% error, which is sufficient for
+  practical EM analysis.
 
 
-
-%Thermal effects has become a recent major research for being a limiting factor in high performance circuit design. Due to the strong thermal-dependence of leakage power, circuit performance, IC package cost and reliability, changing temperature has been an emerging concern on electromigration (EM) in conducting metal lines with complex IC structures. However, an average temperature in the EM failure process is commonly used in most existing EM models and analytic techniques considering dynamic temperature are mainly focused on a single metal wire. In this paper, we propose an analytic method to calculate the stress evolution considering time-varying temperature effects during the void nucleation phase for some multi-branch interconnect trees, including the straight-line there-terminal wires, the T-shaped four-terminal wires and the cross-shaped five-terminal wires. The proposed closed-form expression can be used to calculate the hydrostatic stress evolution with time-varying temperature. Experiment results show that the obtained analytic solutions match well with the numerical results calculated using COMSOL and thus the proposed models can be used in traditional EM reliability analysis tools.
-
-In high performance circuit design, thermal effect on electromigration (EM) reliability has become a recent major research for being a limiting factor. Due to the strong thermal-dependence of leakage power, circuit performance, IC package cost and reliability, considering time-varying temperature effect has been an emerging concern on EM in conducting metal lines with complex interconnect structures. Dynamic temperature-aware reliability modeling has been proposed as a tool to explore the trade-off between the accuracy of lifetime prediction and the system performance. However, average temperature in the EM failure process is commonly used in most existing EM models and analytic techniques considering time-varying temperature are mainly focused on a single metal wire. In this paper, we propose a novel analytic method to calculate the stress evolution considering time-varying temperature effects during the void nucleation phase for some multi-branch interconnect trees, including the straight-line there-terminal wires, the T-shaped four-terminal wires and the cross-shaped five-terminal wires. The proposed closed-form expression can be used to calculate the hydrostatic stress evolution with time-varying temperature. Experiment results show that the obtained analytic solutions match well with the numerical results calculated using COMSOL and thus the proposed models can be used in traditional EM reliability analysis tools.
-
-%Dynamic reliability management
-%(DRM) has been proposed as a mechanism to dynamically explore the tradeoff
-%between system performance and reliability margin. However, existing
-%DRM methods are hampered by the fact that they do not accurately model
-%spatial and temporal variations in process and temperature parameters
-%which have a strong impact on chip reliability. In addition, they make
-%the simplifying assumption that the future workloads are identical to the
-%currently observed one. This makes them sensitive to sudden workload
-%variations and outliers. In this paper, we present a novel workloadaware
-%dynamic reliability management framework that accounts for local
-%variations in both the process and temperature. The reliability estimation,
-%along with the predicted remaining workload is fed to a dynamic voltage/frequency
-%scaling module to manage the system reliability and optimize
-%processor performance. Using a fast on-line analytical/table-look-up method
-%we demonstrate an average error of 1% with up to 5 orders of magnitude
-%speedup compared to Monte Carlo simulation. Experiments on an Alphalike
-%processor show our DRM framework fully utilizes the available margin
-%and achieves 28.7% performance improvement on average.
 \end{abstract}
 
-\vspace{0.15in}
-\begin{keywords}
-electromigration, multi-branch interconnect trees, analytical model, time-varying temperature, stress evolution.
-\end{keywords}
+% \vspace{0.15in}
+% \begin{keywords}
+% electromigration, multi-branch interconnect trees, analytical model, time-varying temperature, stress evolution.
+% \end{keywords}
 
 
 \input introduction.tex
@@ -118,8 +114,11 @@ In this paper, we have proposed a new analysis methods for multi-terminal interc
 
 \bibliographystyle{ieeetr}
 
+\bibliography{../../bib/reliability.bib,../../bib/reliability_papers,../../bib/stochastic,../../bib/simulation,../../bib/modeling,../../bib/reduction,../../bib/misc,../../bib/architecture,../../bib/mscad_pub,../../bib/thermal_power}
+
+
 %\bibliography{../../bib/reliability.bib,reliability_papers,../../bib/stochastic,../../bib/simulation,../../bib/modeling,../../bib/reduction,../../bib/misc,../../bib/architecture,../../bib/mscad_pub,../../bib/thermal_power}
-\bibliography{../../../bib/reliability.bib,reliability_papers,../../../bib/stochastic,../../../bib/simulation,../../../bib/modeling,../../../bib/reduction,../../../bib/misc,../../../bib/architecture,../../../bib/mscad_pub,../../../bib/thermal_power}
+%\bibliography{../../../bib/reliability.bib,reliability_papers,../../../bib/stochastic,../../../bib/simulation,../../../bib/modeling,../../../bib/reduction,../../../bib/misc,../../../bib/architecture,../../../bib/mscad_pub,../../../bib/thermal_power}
 
 
 \end{document}
