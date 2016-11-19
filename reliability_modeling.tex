@@ -1,45 +1,51 @@
-\section{Physics based interconnect reliability modelling} 
+\section{Review of physics-based EM reliability modelling and analysis methods}
 \label{sec:reliability_modeling}
-
-Electromigration (EM) became of engineering interest since it was first observed as one of the primary failure mechanisms in aluminum IC conductors. Many researchers have studied the evolution of stress due to electromigration. Kirchheim proposed a physically based model in which generation of stress in grain boundaries during electrimigration is caused by the annihilation and generation of vacancies. Korhonen ~\cite{Korhonen:jap1993} proposed another physically based analytical model for mechanical stress evolution during electromigration in a confined metal line described by a one-dimensional equation, as follows:
-
+EM has became of engineering interest since it was first observed as one of the primary failure mechanisms in aluminum IC conductors. Many researchers have studied the evolution of stress due to electromigration. Kirchheim proposed a physically based model in which generation of stress in grain boundaries during EM is caused by the annihilation and generation of vacancies. A physically based analytical model for mechanical stress evolution during EM was proposed by Korhonen \cite{Korhonen:jap1993} and further developed by many researchers \cite{Clement:1999tcad, Sukharev:2015jap}. For a confined metal line, the hydrostatic stress distribution $\sigma(x,t)$ along the metal wire can be
+described by a one-dimensional diffusion-like equation, given by:
 \begin{equation}
 \label{eq:basic_em}
 \frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[\frac{D_aB\Omega}{kT}\left(\frac{\partial \sigma(x,t)}{\partial x}+\frac{Z^*e\rho}{\Omega}j\right)\right]
 \end{equation}
-where $\sigma$ is the hydrostatic stress, $t$ is time, $D_a$ is the atomic diffusivity, $B$ is the effective bulk modulus, $\Omega$ is atomic volume,$k$ is the Boltzman's constant, $T$ is absolute temperature, $Z^*$ is the effective charge number, $e$ is electron charge, $\rho$ is resistivity, and $j$ is current density. Our works were mainly based on Equation
-\eqref{eq:basic_em}. The advantage of this model is that the evolution of hydrostatic stress in the confined line can be calculated in a closed form, which has been widely used in EM analysis. For the sake of simplicity, we rewrote Equation \eqref{eq:basic_em} as follows:
+where $\sigma$ is the hydrostatic stress, $t$ is the time, $D_a$ is the atomic diffusivity, $B$ is the effective bulk modulus, $\Omega$ is the atomic volume, $k$ is the Boltzman's constant, $T$ is the absolute temperature, $Z^*$ is the effective charge number, $e$ is the electron charge, $\rho$ is the resistivity, and $j$ is the current density. The advantage of this model is that the evolution of hydrostatic stress in a confined line can be calculated in a closed-form expression, which has been widely used in EM analysis.
 
+It should be noted that the closed-form expression reported in \cite{Korhonen:jap1993} is only applicable to a single wire case while it can not be used to calculate the hydrostatic stress during EM for multi-segment interconnect wires. In this paper, we extend the Korhonen equation \eqref{eq:basic_em} to allow for a general multi-segment interconnect wire. For the convenience of following description, we rewrite the Korhonen equation \eqref{eq:basic_em} as a compact form:
 \begin{equation}
 \label{eq:basic_em_s}
-\frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[D_t\left(\frac{\partial \sigma(x,t)}{\partial x}+G\right)\right]
+\frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[\kappa\left(\frac{\partial \sigma(x,t)}{\partial x}+G\right)\right]
 \end{equation}
-where $D_t=\frac{D_aB\Omega}{kT}$ is the stress diffusivity affected by temperature $T$ and $G=\frac{Z^*e\rho}{\Omega}j$ is EM driving force. Moreover, $D_a=D_0e^{-\frac{E_a}{kT}}$ is the effective atomic diffusion coefficient. $D_0$ and $E_a$ stand for the pre-exponential factor and the activation energy, respectively.
+where $\kappa=\frac{D_aB\Omega}{kT}$ is the stress diffusivity affected by temperature $T$ and $G=\frac{Z^*e\rho}{\Omega}j$ is the EM driving force. Moreover, $D_a=D_0e^{-\frac{E_a}{kT}}$ is the effective atomic diffusion coefficient. $D_0$ and $E_a$ stand for the pre-exponential factor and the activation energy, respectively. The Korhonen equation \eqref{eq:basic_em_s} has differen analytical solutions with different boundary conditions (BCs). Following the idea in \cite{Korhonen:jap1993}, we assume that the stress diffusivity $\kappa$ does not depend on time. During the void nucleation phase of EM, the atom fluxes are blocked at both wire ends $x=0$ and $x=L$ at any moment in time. The initial stress value during the void nucleation phase is set to be zero. Thus, the closed-form solution of the stress evolution equation for a single segment wire can be given as follows \cite{Korhonen:jap1993}:
+\begin{equation} \label{eq:korhonen_sol}
+\begin{split}
+\sigma(x,t)&= GL\{\frac{1}{2}-\frac{x}{L}\\
+&-4\sum\limits_{n=0}^{\infty}\frac{\cos((2n+1)\pi
+\frac{x}{L})}{(2n+1)^2\pi^2\exp((2n+1)^2\pi^2\frac{\kappa
+t}{L^2})}\}.
+\end{split}
+\end{equation}
+By employing the analytical expression \eqref{eq:korhonen_sol}, the void nucleation time can be easily predicted. Assuming of course that the stress $\sigma(x,t)$ in the wire has reached a critical state stress value $\sigma_{crit}$, then the void nucleation time $t_{nuc}$ can be obtained by solving the equation $\sigma(x,t_{nuc})=\sigma_{crit}$. 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=2in]{DifferentTemperature.eps}
-\caption{The different temperature function in later experiments.}
-\label{fig:NTTemperature}
+\begin{figure}[ht] \centering \subfigure[]{
+    \vspace{-0.2in}
+    \includegraphics[width=44mm]{3_terminal_model.eps}
+    \label{fig:3_terminal_model}}
+    \subfigure[]{
+    \includegraphics[width=37mm]{3_terminal_current.eps}
+    \label{fig:3_terminal_current}}
+    \vspace{-0.12in}
+        \subfigure[]{
+    \includegraphics[width=45mm]{3_terminal_stress.eps}
+    \label{fig:3_terminal_stress}}
+    \vspace{-0.04in}
+\caption{(a) Three-terminal interconnect wire; (b) current density distributions; (c) hydrostatic stress distributions. }
+  \label{fig:3_terminal}
+  \vspace{-0.12in}
 \end{figure}
 
-The research for multi-branch interconnect trees is still a large and challenging problem. Due to the strong thermal-dependence of leakage power, circuit performance, IC package cost and reliability, thermal effects has become a recent major research for being a limiting factor in high performance circuit design. Among the thermal effects, varying temperature is an important part to EM analysis. We have made the EM experiments considering the changing temperature and the average temperature. In Fig.\ref{fig:NTTemperature}, we create three types of changing temperature. As we can see, function $T_0(t)$ is the average temperature of square wave temperature $T_1(t)$ and sine wave temperature $T_2(t)$. The stress evolution results for straight line interconnect tree simulated in COMSOL are showed in Fig.\ref{fig:NoteTemperature}, indicating that the relative stress variation is mostly higher than 0.5. Explicitly, we can't use average temperature to replace the changing temperature.
+However, the existing analytical model \eqref{eq:korhonen_sol} focuses only on a single segment wire. The research on EM-based stress evolutions of both void nucleation and growth phases for multi-segment interconnect wires is still a large and challenging problem. Due to the strong coupling between neighboring segments, EM reliability of multi-segment wires has become a recent major research for being a limiting factor in high performance circuit design. To further illustrate this, we consider a three-terminal interconnect wire loaded with DC currents as shown in Fig. \ref{fig:3_terminal_model}. The finite element analysis tool COMSOL \cite{?} can be used to calculate the hydrostatic stress along the interconnect wire. The distributions of the current density and the hydrostatic stress along this wire are shown in Fig. \ref{fig:3_terminal_current} and Fig. \ref{fig:3_terminal_stress}, respectively. Recent work \cite{?} has report an analytical solution of EM-based stress evolution equation during the void nucleation phase. But it did not give an analytic form to model a general multi-segment interconnect wire. In this paper, for the first time, we will propose an analytic method to calculate the stress evolution considering EM effects during the void nucleation phase for multi-segment interconnect wires.
 
-\begin{figure}[!h]
-\centering
-\subfigure[]{
-\includegraphics[width=0.45\columnwidth]{StressUnderDifferentTemperature.eps}
-\label{fig:NTStress}}
-\subfigure[]{
-\includegraphics[width=0.45\columnwidth]{RelativeStress.eps}
-\label{fig:NTRStress}}
-\caption{The real results considering different temperature environment in COMSOL. (a) the stress evolution; (b) the relative stress variation.}
-\label{fig:NoteTemperature}
-\end{figure}
+%The proposed closed-form expression can be used to calculate the hydrostatic stress evolution during the void nucleation phase.
 
-In this work, for the first time, we propose an analytic method to calculate the stress evolution considering time-varying temperature effects during the void nucleation phase for some multi-branch interconnect trees, including the straight-line there-terminal wires, the T-shaped four-terminal wires and the cross-shaped five-terminal wires. The proposed closed-form expression can be used to calculate the hydrostatic stress evolution with time-varying temperature.
 
-The remainder of the paper is organized as follows. In Section \ref{sec:analytical_expressions}, we induce the analytical expression for the stress evolution in multi-branch interconnect tree considering constant temperature.Then we extend this model in time-varying temperature environment in Section \ref{sec:dynamic_modeling}. Experimental results for the straight-line there-terminal wires, the T-shaped four-terminal wires and the cross-shaped five-terminal wires are presented in Section \ref{sec:experimental_results}. Concluding remarks are drawn in Section \ref{sec:conclusion}.
 
 
 

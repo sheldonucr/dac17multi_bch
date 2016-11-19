@@ -2,7 +2,7 @@
 \label{sec:experimental_results}
 In order to show the accuracy of the proposed model of EM reliability for multi-branch interconnect three with line structure shown in Fig. \ref{fig:interconnect_tree}, the analytical solution \eqref{eq:general_solution} of stress evolution equations is calculated with the MATLAB enviroment, and we also compare the results from \eqref{eq:general_solution} with those obtained by the finite element tool COMSOL \cite{?}. In our experiments, we test three cases of interconnect tree structure by changing $n$ in \eqref{eq:general_solution} which is the number of wire segments in the interconnect tree. In the simulations to be described below, the following parameter values will be used: $Z^*=10$, $\rho=3\times10^{-8} \Omega/m$, $\Omega=8.78\times10^{-30}m^3$, $B=5.5\times10^{10} Pa$, $D_0=5.5\times10^{-5} m^2/s$, $E_a=1.1eV$, $e=1.6\times10^{-19}C$, $k=1.38\times10^{-23}J/K$ , and $T=350K$.
 
-\subsection{Four-terminal interconnect tree ($n=3$)}
+\subsection{Four-terminal interconnect wire ($n=3$)}
 \begin{figure}[!h]
 \centering
 \subfigure[]{
@@ -48,7 +48,7 @@ We first apply the COMSOL to compute an accurate numerical solution of \eqref{eq
 
 
 
-\subsection{Five-terminal interconnect tree ($n=4$)}
+\subsection{Five-terminal interconnect wire ($n=4$)}
 \begin{figure}[!h]
 \centering
 \subfigure[]{
@@ -75,7 +75,7 @@ We first apply the COMSOL to compute an accurate numerical solution of \eqref{eq
 \end{figure}
 
 
-\subsection{Six-terminal interconnect tree ($n=5$)}
+\subsection{Six-terminal interconnect wire ($n=5$)}
 \begin{figure}[!h]
 \centering
 \subfigure[]{
@@ -107,7 +107,7 @@ We first apply the COMSOL to compute an accurate numerical solution of \eqref{eq
 
 
 %\subsection{T-shaped interconnect tree results}
-%As expected in Fig.\ref{fig:TResults}, the stress distribution in the T-shaped tree shown in Fig.\ref{fig:Tshaped}, based on proposed analytical solution, has synchronized movement with numerical simulation in COMSOL. From Fig.\ref{fig:TT1Length} and Fig.\ref{fig:TT2Length},when the T-shaped tree works over $1\times10^{7}s$ in branch $1$, the stress as mild changes. So we just take two time values in Fig.\ref{fig:TT1Compare} and 
+%As expected in Fig.\ref{fig:TResults}, the stress distribution in the T-shaped tree shown in Fig.\ref{fig:Tshaped}, based on proposed analytical solution, has synchronized movement with numerical simulation in COMSOL. From Fig.\ref{fig:TT1Length} and Fig.\ref{fig:TT2Length},when the T-shaped tree works over $1\times10^{7}s$ in branch $1$, the stress as mild changes. So we just take two time values in Fig.\ref{fig:TT1Compare} and
 %\begin{figure}[!h]
 %\centering
 %\subfigure[]{
