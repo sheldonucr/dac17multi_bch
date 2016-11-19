@@ -2,7 +2,7 @@
 \label{sec:intro}
 
 Electromigration is considered the top killer for today's copper dual
-damascene interconnect technology. Recently there is a re-new
+damascene interconnect technology. Recently there is a renewed
 interests in EM modeling and mitigation techniques as EM induced
 reliability is geting worse as technology advance.  ITRS predicts that
 the EM induced life time of the interconnects will be reduced by half
@@ -12,17 +12,26 @@ be too conservative, which can lead to significant over
 designs~\cite{Bailey:semieng}.
 
 Existing EM model and analysis techniques mainly focus on the simple
-straight line interconnect with two line end terminals. For practical
-VLSI chips, the interconnects such as clock and power grid networks
-typically consist of multi-branch metal segments representing a
-continuously connected, highly conductive metal (Cu) lines within one
-layer of metallization, terminating at diffusion barriers. The EM
-effects in those branches are not independent and they have to be
-considered simultaneously.
+straight line interconnect with two line end
+terminals~\cite{deOrio:2010}.  Exsiting widely used EM models such as
+Blech limit \cite{Blech:1976ko} (for the out filtration of immortal
+segments) and Black's equation \cite{Black:1969fc} (for calculating
+MTTFs for segments characterized by known current densities and
+temperatures) are subjects of the hard criticism
+\cite{Ohring:1998uj}\cite{Lloyd:2008je}\cite{Hauschildt:2013cv} as
+those emperical models are stressing condition dependent and lacks of
+scalability over wide current and temperature stressing
+conditions. More importantly, those models can only applied to simple
+wire strucutres.  For practical VLSI chips, the interconnects such as
+clock and power grid networks typically consist of multi-branch metal
+segments representing a continuously connected, highly conductive
+metal (Cu) lines within one layer of metallization, terminating at
+diffusion barriers. The EM effects in those branches are not
+independent and they have to be considered simultaneously.
 
-Recently some physics-based EM analysis methods for the TSV and power
-grid networks have been proposed based on solving the basic mass
-transport
+Recently some physics-based EM analysis methods for the
+TSV and power grid networks have been proposed based on solving the
+basic mass transport
 equations~\cite{Pak:2011cx,Pathak:2011kz,Zhao:2013cv,Pak:2013bh}.
 Those models treat the resistance changes of a wire over time as the
 atomic concentration changes due to atomic flux. Since these proposed
@@ -30,26 +39,25 @@ methods solve the basic mass transport equations using the finite
 element method, they can only solve for very small structures such as
 one TSV structure. Complicated look-up table or models have to be
 built for different TSVs and wire segments for full-chip power grid
-analysis at reduced accuracy. To mitigate this problem, a more compact
-physics-based EM model was proposed recently in
-~\cite{HuangYu:DAC'14}. It is based on the hydrostatic stress
-diffusion equation~\cite{Korhonen:jap1993}. However, this EM model
-still works for one single wire segment. Although the new EM model has
-been extended to deal with multiple branch tree wire based on
-projected steady-state stress.  It still can't provide the
-time-dependent hydrostatic evolution of hydrostatic stress, which
-ultimately determines the failures for multi-branch interconnect
-wires.
+analysis at reduced accuracy.
 
-Recently EM models for multi-branch interconnect tree have been
+To mitigate this problem, a more compact physics-based EM model was
+proposed recently in ~\cite{HuangYu:DAC'14}. It is based on the
+hydrostatic stress diffusion
+equation~\cite{Korhonen:jap1993}. However, this EM model still works
+for one single wire segment. Although the new EM model has been
+extended to deal with multiple branch tree wire based on projected
+steady-state stress.  It still can't provide the time-dependent
+hydrostatic evolution of hydrostatic stress, which ultimately
+determines the failures for multi-branch interconnect wires.  Recently
+EM models for multi-branch interconnect tree have been
 proposed~\cite{ChenHuang:DAC'15,ChenTan:TCAD'16}. In this approach,
-analytic solutions for stress development over time were dervied for
-three specific interconenct strucutres: the straight-line 3-terminal
-wires (figure \ref{fig:tshape-demo}), the T-shape 4-terminal wires and the cross-shape 5-terminal
-wires. Those those analytic expressions are still can be applied to
-more general structures such as the multi-segment interconnect wires
-as showed Fig.~\ref{fig:multi-seg-wire}, which are commonly seen in
-the power/ground network in practical VLSI layouts.
+analytic solutions for stress evoluation were dervied for a few
+specific interconnect structures. However, those those analytic
+expressions are still can be applied to more general structures such
+as the multi-segment interconnect wires as showed
+Fig.~\ref{fig:multi-seg-wire}, which are commonly seen in the
+power/ground network in practical VLSI layouts.
 
 \begin{figure}[!th]
 \centering
@@ -123,7 +131,8 @@ the power/ground network in practical VLSI layouts.
 % wires. The proposed closed-form expression can be used to calculate
 % the hydrostatic stress evolution with time-varying temperature.
 
-In this paper, we propose a new analytic expression hydrostatic stress
+In this paper, we aim to resolve the mentioned problems for EM
+model. We propose a new analytic expression hydrostatic stress
 calculation for general multi-segment interconnect wire with multiple
 terminals. The new method is based on the Laplace transformation
 method on the Korhonen's equation with blocked atom flux boundary
@@ -134,7 +143,15 @@ using the first two dominant basis functions can lead to xx\% error,
 which is sufficient for practical EM analysis.
 
 The remainder of the paper is organized as follows. In Section
-\ref{sec:reliability_modeling}, we induce the physics-based EM models and analysis methods for the stress evolution during EM in simple interconnect wires. Then we extend this analytic model to deal with a general multi-segment interconnect wire case in Section \ref{sec:multi_segment}. Experiment results and discussions for the stress evolution of EM effects for four-, five-, six-terminal interconnect wires are presented in Section \ref{sec:experimental_results}. Concluding remarks are drawn in Section \ref{sec:conclusion}.
+\ref{sec:reliability_modeling}, we induce the physics-based EM models
+and analysis methods for the stress evolution during EM in simple
+interconnect wires. Then we extend this analytic model to deal with a
+general multi-segment interconnect wire case in Section
+\ref{sec:multi_segment}. Experiment results and discussions for the
+stress evolution modeling multi-segment (three-, five-, six-terminal)
+interconnect wires are presented in Section
+\ref{sec:experimental_results}. Concluding remarks are drawn in
+Section \ref{sec:conclusion}.
 
 
 

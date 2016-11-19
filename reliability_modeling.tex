@@ -1,47 +1,155 @@
-\section{Review of physics-based EM reliability modelling and analysis methods}
+\section{Review of physics-based EM modelling and analysis methods}
 \label{sec:reliability_modeling}
-EM has became of engineering interest since it was first observed as one of the primary failure mechanisms in aluminum IC conductors. Many researchers have studied the evolution of stress due to electromigration. Kirchheim proposed a physically based model in which generation of stress in grain boundaries during EM is caused by the annihilation and generation of vacancies. A physically based analytical model for mechanical stress evolution during EM was proposed by Korhonen \cite{Korhonen:jap1993} and further developed by many researchers \cite{Clement:1999tcad, Sukharev:2015jap}. For a confined metal line, the hydrostatic stress distribution $\sigma(x,t)$ along the metal wire can be
-described by a one-dimensional diffusion-like equation, given by:
-\begin{equation}
-\label{eq:basic_em}
-\frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[\frac{D_aB\Omega}{kT}\left(\frac{\partial \sigma(x,t)}{\partial x}+\frac{Z^*e\rho}{\Omega}j\right)\right]
-\end{equation}
-where $\sigma$ is the hydrostatic stress, $t$ is the time, $D_a$ is the atomic diffusivity, $B$ is the effective bulk modulus, $\Omega$ is the atomic volume, $k$ is the Boltzman's constant, $T$ is the absolute temperature, $Z^*$ is the effective charge number, $e$ is the electron charge, $\rho$ is the resistivity, and $j$ is the current density. The advantage of this model is that the evolution of hydrostatic stress in a confined line can be calculated in a closed-form expression, which has been widely used in EM analysis.
 
-It should be noted that the closed-form expression reported in \cite{Korhonen:jap1993} is only applicable to a single wire case while it can not be used to calculate the hydrostatic stress during EM for multi-segment interconnect wires. In this paper, we extend the Korhonen equation \eqref{eq:basic_em} to allow for a general multi-segment interconnect wire. For the convenience of following description, we rewrite the Korhonen equation \eqref{eq:basic_em} as a compact form:
+EM is a physical phenomenon of the migration of metal atoms along a
+direction of the applied electrical field. This oriented atomic flow,
+which is caused mostly by the momentum exchange between atoms and the
+conducting electrons, results in metal density depletion at the
+cathode, and a corresponding metal accumulation at the anode end of
+the metal wire. Due to the passivation of copper wires from the dual
+damascene copper interconnect technology, hydrostatic stress will
+built up from the metal concentration changes at those nodes, which
+will lead to void nucleation when the stress reach to the critical
+stress and following up failures of the wires as results of the void
+growth.
+
+EM phenomena and EM modeling have been intensively studied and some
+important physics-based EM models have been proposed in the past two
+decades~\cite{deOrio:2010}. Korhonen proposed the important EM model
+to describe the EM-induced stress evolution of passivated interconnect
+wires and its analytic solution for a simple wire structure in
+1993~\cite{Korhonen:jap1993}, which was further developed by many
+researchers~\cite{Clement:1999tcad, Sukharev:2015jap}. Specifically,
+for a confined/passivated metal line, the hydrostatic stress
+distribution $\sigma(x,t)$ along the metal wire can be described by a
+one-dimensional diffusion-like equation, given
+by:~\cite{Korhonen:jap1993}
+% \begin{equation}
+% \label{eq:basic_em}
+% \frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[\frac{D_aB\Omega}{kT}\left(\frac{\partial \sigma(x,t)}{\partial x}+\frac{Z^*e\rho}{\Omega}j\right)\right]
+% \end{equation}
+% where $\sigma$ is the hydrostatic stress, $t$ is the time, $D_a$ is
+% the atomic diffusivity, $B$ is the effective bulk modulus, $\Omega$ is
+% the atomic volume, $k$ is the Boltzman's constant, $T$ is the absolute
+% temperature, $Z^*$ is the effective charge number, $e$ is the electron
+% charge, $\rho$ is the resistivity, and $j$ is the current density. 
+%
+% The advantage of this model is that the evolution of hydrostatic
+% stress in a confined line can be calculated in a closed-form
+% expression, which has been widely used in EM analysis.
+
+% It should be noted that the closed-form expression reported in
+% \cite{Korhonen:jap1993} is only applicable to a single wire case while
+% it can not be used to calculate the hydrostatic stress during EM for
+% multi-segment interconnect wires. In this paper, we extend the
+% Korhonen equation \eqref{eq:basic_em} to allow for a general
+% multi-segment interconnect wire. 
+%
+% For the convenience of following
+% description, we rewrite the Korhonen equation \eqref{eq:basic_em} as a
+% compact form:
 \begin{equation}
 \label{eq:basic_em_s}
 \frac{\partial \sigma(x,t)}{\partial t}=\frac{\partial }{\partial x}\left[\kappa\left(\frac{\partial \sigma(x,t)}{\partial x}+G\right)\right]
 \end{equation}
-where $\kappa=\frac{D_aB\Omega}{kT}$ is the stress diffusivity affected by temperature $T$ and $G=\frac{Z^*e\rho}{\Omega}j$ is the EM driving force. Moreover, $D_a=D_0e^{-\frac{E_a}{kT}}$ is the effective atomic diffusion coefficient. $D_0$ and $E_a$ stand for the pre-exponential factor and the activation energy, respectively. The Korhonen equation \eqref{eq:basic_em_s} has differen analytical solutions with different boundary conditions (BCs). Following the idea in \cite{Korhonen:jap1993}, we assume that the stress diffusivity $\kappa$ does not depend on time. During the void nucleation phase of EM, the atom fluxes are blocked at both wire ends $x=0$ and $x=L$ at any moment in time. The initial stress value during the void nucleation phase is set to be zero. Thus, the closed-form solution of the stress evolution equation for a single segment wire can be given as follows \cite{Korhonen:jap1993}:
+where $\kappa=\frac{D_aB\Omega}{kT}$ is the stress diffusivity
+affected by temperature $T$ and $G=\frac{Z^*e\rho}{\Omega}j$ is the EM
+driving force. Moreover, $D_a=D_0e^{-\frac{E_a}{kT}}$ is the effective
+atomic diffusion coefficient. $D_0$ and $E_a$ stand for the
+pre-exponential factor and the activation energy, respectively. The
+Korhonen equation \eqref{eq:basic_em_s} has differen analytical
+solutions with different boundary conditions (BCs). Following the idea
+in \cite{Korhonen:jap1993}, we assume that the stress diffusivity
+$\kappa$ does not depend on time. During the void nucleation phase of
+EM, the atom fluxes are blocked at both wire ends $x=0$ and $x=L$ at
+any moment in time. The initial stress value during the void
+nucleation phase is set to be zero. Thus, the closed-form solution of
+the stress evolution equation for a single segment wire can be given
+as follows \cite{Korhonen:jap1993}:
 \begin{equation} \label{eq:korhonen_sol}
 \begin{split}
-\sigma(x,t)&= GL\{\frac{1}{2}-\frac{x}{L}\\
+\sigma(x,t)&= \sigma_T+ GL\{\frac{1}{2}-\frac{x}{L}\\
 &-4\sum\limits_{n=0}^{\infty}\frac{\cos((2n+1)\pi
 \frac{x}{L})}{(2n+1)^2\pi^2\exp((2n+1)^2\pi^2\frac{\kappa
 t}{L^2})}\}.
 \end{split}
 \end{equation}
-By employing the analytical expression \eqref{eq:korhonen_sol}, the void nucleation time can be easily predicted. Assuming of course that the stress $\sigma(x,t)$ in the wire has reached a critical state stress value $\sigma_{crit}$, then the void nucleation time $t_{nuc}$ can be obtained by solving the equation $\sigma(x,t_{nuc})=\sigma_{crit}$. 
+where $\sigma_T$ is the pre-existing residual stress due to thermal
+process. If we only keep the slowest decaying term of the infinite
+series in \eqref{eq:korhonen_sol}, we can compute the time to
+nucleation. This happens when the wire stress $\sigma(x,t)$ sigma has
+reached a critical state stress value $\sigma_{crit}$, then the void
+nucleation time $t_{nuc}$ can be obtained by solving the equation
+$\sigma(x,t_{nuc})=\sigma_{crit}$~\cite{HuangYu:DAC'14}.
 
-\begin{figure}[ht] \centering \subfigure[]{
-    \vspace{-0.2in}
-    \includegraphics[width=44mm]{3_terminal_model.eps}
-    \label{fig:3_terminal_model}}
-    \subfigure[]{
-    \includegraphics[width=37mm]{3_terminal_current.eps}
-    \label{fig:3_terminal_current}}
-    \vspace{-0.12in}
-        \subfigure[]{
-    \includegraphics[width=45mm]{3_terminal_stress.eps}
-    \label{fig:3_terminal_stress}}
-    \vspace{-0.04in}
-\caption{(a) Three-terminal interconnect wire; (b) current density distributions; (c) hydrostatic stress distributions. }
-  \label{fig:3_terminal}
-  \vspace{-0.12in}
-\end{figure}
+The physics-based EM model proposed
+in~\cite{HuangYu:DAC'14,HuangTan:TCAD'16} was extended further to deal
+with multi-branch interconnects, in which the projected steady-state
+EM-induced stress of each branch induced by is used to compute the
+total stress distributions in a tree and then the relative branch
+stress is used to calculate the time to failure. The drawback of this
+work is that it totally ignore all the dynamic evolutions of stress
+over time and the interactions of void nucleation process among
+branches. As a result, it still can't provide analytic expression for
+provide the time-dependent hydrostatic evolution of hydrostatic stress
+to determine the failures for multi-branch interconnect wires.
 
-However, the existing analytical model \eqref{eq:korhonen_sol} focuses only on a single segment wire. The research on EM-based stress evolutions of both void nucleation and growth phases for multi-segment interconnect wires is still a large and challenging problem. Due to the strong coupling between neighboring segments, EM reliability of multi-segment wires has become a recent major research for being a limiting factor in high performance circuit design. To further illustrate this, we consider a three-terminal interconnect wire loaded with DC currents as shown in Fig. \ref{fig:3_terminal_model}. The finite element analysis tool COMSOL \cite{?} can be used to calculate the hydrostatic stress along the interconnect wire. The distributions of the current density and the hydrostatic stress along this wire are shown in Fig. \ref{fig:3_terminal_current} and Fig. \ref{fig:3_terminal_stress}, respectively. Recent work \cite{?} has report an analytical solution of EM-based stress evolution equation during the void nucleation phase. But it did not give an analytic form to model a general multi-segment interconnect wire. In this paper, for the first time, we will propose an analytic method to calculate the stress evolution considering EM effects during the void nucleation phase for multi-segment interconnect wires.
+Following another direction, a voltage-based EM modeling and
+immortality check technique for general interconnect tree structures
+has been proposed recently~\cite{SunDemircan:ICCAD'16}. In this work,
+the projected steady-state stresses for each branch or segment also
+calculated and then the steady state stress at every node of the tree
+are then computed in terms of voltage voltages and wire layout
+parameters. By checking the largest stress over all the tree, one can
+ensure that the tree never fail if largest stress is less than the
+critical stress. But this method still can't give the time to failure
+the wire fail the immortality check. A good research effort was
+carried out recently to develop stress evolution analytic solution for
+multi-branch interconnect
+tree~\cite{ChenHuang:DAC'15,ChenTan:TCAD'16}.  In this approach,
+analytic solutions by means of Laplace transformation method for
+stress evolution were dervied for three specific interconnect
+strucutres: the straight-line 3-terminal wires, the T-shape 4-terminal
+wires and the cross-shape 5-terminal wires. It was also shown that a
+few dominant terms can be used for sufficiently accurate solution.
+
+% \begin{figure}[ht] \centering \subfigure[]{
+%     \vspace{-0.2in}
+%     \includegraphics[width=44mm]{3_terminal_model.eps}
+%     \label{fig:3_terminal_model}}
+%     \subfigure[]{
+%     \includegraphics[width=37mm]{3_terminal_current.eps}
+%     \label{fig:3_terminal_current}}
+%     \vspace{-0.12in}
+%         \subfigure[]{
+%     \includegraphics[width=45mm]{3_terminal_stress.eps}
+%     \label{fig:3_terminal_stress}}
+%     \vspace{-0.04in}
+% \caption{(a) Three-terminal interconnect wire; (b) current density distributions; (c) hydrostatic stress distributions. }
+%   \label{fig:3_terminal}
+%   \vspace{-0.12in}
+% \end{figure}
+
+% However, the existing analytical model \eqref{eq:korhonen_sol} focuses
+% only on a single segment wire. The research on EM-based stress
+% evolutions of both void nucleation and growth phases for multi-segment
+% interconnect wires is still a large and challenging problem. Due to
+% the strong coupling between neighboring segments, EM reliability of
+% multi-segment wires has become a recent major research for being a
+% limiting factor in high performance circuit design. To further
+% illustrate this, we consider a three-terminal interconnect wire loaded
+% with DC currents as shown in Fig. \ref{fig:3_terminal_model}. The
+% finite element analysis tool COMSOL \cite{?} can be used to calculate
+% the hydrostatic stress along the interconnect wire. The distributions
+% of the current density and the hydrostatic stress along this wire are
+% shown in Fig. \ref{fig:3_terminal_current} and
+% Fig. \ref{fig:3_terminal_stress}, respectively. Recent work \cite{?}
+% has report an analytical solution of EM-based stress evolution
+% equation during the void nucleation phase. But it did not give an
+% analytic form to model a general multi-segment interconnect wire. In
+% this paper, for the first time, we will propose an analytic method to
+% calculate the stress evolution considering EM effects during the void
+% nucleation phase for multi-segment interconnect wires.
 
 %The proposed closed-form expression can be used to calculate the hydrostatic stress evolution during the void nucleation phase.
 

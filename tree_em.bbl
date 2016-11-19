@@ -1,152 +1,106 @@
 \begin{thebibliography}{10}
 
-\bibitem{Bailey:2013uh}
-B.~Bailey, ``{Thermally challenged},'' {\em Semiconductor Engineering},
-  pp.~1--8, Dec. 2013.
+\bibitem{ITRS}
+``International technology roadmap for semiconductors ({ITRS}), 2014 update,''
+  2012.
+\newblock \url{http://public.itrs.net}.
 
-\bibitem{Chatterjee:iccad2013}
-S.~Chatterjee, M.~B. Fawaz, and F.~N. Najm, ``{Redundancy-aware
-  electromigration checking for mesh power grids},'' in {\em IEEE/ACM
-  International Conference on Computer-Aided Design (ICCAD)}, 2013.
+\bibitem{Bailey:semieng}
+B.~Bailey, ``{Thermally Challenged},'' in {\em Semiconductor Engineering},
+  2013.
 
-\bibitem{Mishra:2013up}
-V.~Mishra and S.~S. Sapatnekar, ``{The impact of electromigration in Copper
-  interconnects on power grid integrity},'' in {\em Proc. Design Automation
-  Conf. (DAC)}, June 2013.
+\bibitem{deOrio:2010}
+R.~De~Orio, H.~Ceric, and S.~Selberherr, ``Physically based models of
+  electromigration: From black’s equation to modern tcad models,'' {\em
+  Microelectronics Reliability}, vol.~50, no.~6, pp.~775--789, 2010.
 
 \bibitem{Blech:1976ko}
-I.~A. Blech, ``{Electromigration in thin aluminum films on titanium nitride},''
+I.~A. Blech, ``{Electromigration in Thin Aluminum Films on Titanium Nitride},''
   {\em Journal of Applied Physics}, vol.~47, no.~4, pp.~1203--1208, 1976.
 
 \bibitem{Black:1969fc}
-J.~R. Black, ``{Electromigration-a brief survey and some recent results},''
-  {\em IEEE Transactions on Electron Devices}, vol.~16, no.~4, pp.~338--347,
-  1969.
+J.~R. Black, ``{Electromigration-A Brief Survey and Some Recent Results},''
+  {\em IEEE Trans. on Electron Devices}, vol.~16, no.~4, pp.~338--347, 1969.
+
+\bibitem{Ohring:1998uj}
+M.~Ohring, {\em {Reliability and Failure of Electronic Materials and Devices}}.
+\newblock San Diego: Academic Press, 1998.
 
 \bibitem{Lloyd:2008je}
 J.~R. Lloyd, ``{New models for interconnect failure in advanced IC
-  technology},'' in {\em International Symposium on the Physical and Failure
-  Analysis of Integrated Circuits}, pp.~1--7, 2008.
+  technology},'' {\em Physical and Failure Analysis of Integrated Circuits,
+  2008. IPFA 2008. 15th International Symposium on the}, pp.~1--7, 2008.
 
 \bibitem{Hauschildt:2013cv}
 M.~Hauschildt, C.~Hennesthal, G.~Talut, O.~Aubel, M.~Gall, K.~B. Yeap, and
-  E.~Zschech, ``{Electromigration early failure void nucleation and growth
-  phenomena in Cu and Cu(Mn) interconnects},'' in {\em IEEE International
+  E.~Zschech, ``{Electromigration Early Failure Void Nucleation and Growth
+  Phenomena in Cu And Cu(Mn) Interconnects},'' in {\em IEEE International
   Reliability Physics Symposium (IRPS)}, pp.~2C.1.1--2C.1.6, 2013.
+
+\bibitem{Pak:2011cx}
+J.~S. Pak, M.~Pathak, S.~K. Lim, and D.~Pan, ``{Modeling of electromigration in
+  through-silicon-via based 3D IC},'' in {\em Electronic Components and
+  Technology Conference (ECTC), 2011 IEEE 61st}, pp.~1420--1427, 2011.
 
 \bibitem{Pathak:2011kz}
 M.~Pathak, J.~S. Pak, D.~Pan, and S.~K. Lim, ``{Electromigration modeling and
   full-chip reliability analysis for BEOL interconnect in TSV-based 3D ICs},''
-  in {\em IEEE/ACM International Conference on Computer-Aided Design (ICCAD)},
-  pp.~555--562, 2011.
+  in {\em Computer-Aided Design (ICCAD), 2011 IEEE/ACM International Conference
+  on}, pp.~555--562, 2011.
+
+\bibitem{Zhao:2013cv}
+X.~Zhao, Y.~Wan, M.~Scheuermann, and S.~K. Lim, ``{Transient modeling of
+  TSV-wire electromigration and lifetime analysis of power distribution network
+  for 3D ICs},'' in {\em Computer-Aided Design (ICCAD), 2013 IEEE/ACM
+  International Conference on}, pp.~363--370, 2013.
+
+\bibitem{Pak:2013bh}
+J.~Pak, S.~K. Lim, and D.~Z. Pan, ``{Electromigration study for multi-scale
+  power/ground vias in TSV-based 3D ICs},'' in {\em Computer-Aided Design
+  (ICCAD), 2013 IEEE/ACM International Conference on}, pp.~379--386, 2013.
 
 \bibitem{HuangYu:DAC'14}
 X.~Huang, T.~Yu, V.~Sukharev, and S.~X.-D. Tan, ``Physics-based
   electromigration assessment for power grid networks,'' in {\em Proc. Design
   Automation Conf. (DAC)}, June 2014.
 
-\bibitem{Sukharev:2013tq}
-V.~Sukharev, ``{Beyond {Black's} equation full-chip {EM/SM} assessment in {3D}
-  {IC} stack},'' {\em Microelectronic Engineering}, vol.~120, pp.~99--105, May
-  2014.
-
 \bibitem{Korhonen:jap1993}
-M.~A. Korhonen, P.~Borgesen, K.~N. Tu, and C.~Y. Li, ``{Stress evolution due to
-  electromigration in confined metal lines},'' {\em Journal of Applied
+M.~A. Korhonen, P.~Borgesen, K.~N. Tu, and C.~Y. Li, ``{Stress Evolution Due to
+  Electromigration in Confined Metal Lines},'' {\em Journal of Applied
   Physics}, vol.~73, no.~8, pp.~3790--3799, 1993.
-
-\bibitem{Sukharev:2009cu}
-V.~Sukharev, A.~Kteyan, E.~Zschech, and W.~D. Nix, ``{Microstructure effect on
-  EM-induced degradations in dual inlaid Copper interconnects},'' {\em IEEE
-  Transactions on Device and Materials Reliability}, vol.~9, no.~1, pp.~87--97,
-  2009.
-
-\bibitem{comsol}
-``Comsol multiphysics.''
-\newblock http://www.comsol.com.
-
-\bibitem{HauRiege:2001JAP}
-S.~P. Hau-Riege and C.~V. Thompson, ``{Experimental characterization and
-  modeling of the reliability of interconnect trees},'' {\em Journal of Applied
-  Physics}, vol.~89, pp.~601--609, January 2001.
-
-\bibitem{Vairagar:2005}
-A.~V. Vairagar, S.~G. Mhaisalkar, M.~A. Meyer, E.~Zschech, A.~Krishnamoorthy,
-  K.~N. Tu, and A.~M. Gusak, ``{Direct evidence of electromigration failure
-  mechanism in dual-damascene Cu interconnect tree structures},'' {\em Applied
-  Physics Letters}, vol.~87, pp.~081909--1--081909--4, August 2005.
-
-\bibitem{Thompson:1999AIPcf}
-C.~Thompson, S.~Hau-Riege, and V.~Andleigh, ``{Modeling and experimental
-  characterization of electromigration in interconnect trees},'' in {\em AIP
-  Conference Proceedings}, pp.~62--73, 1999.
-
-\bibitem{Gan:2003}
-C.~L. Gan, C.~V. Thompson, K.~L. Pey, and W.~K. Choi, ``{Experimental
-  characterization and modeling of the reliability of three-terminal
-  dual-damascene Cu interconnect trees},'' {\em Journal of Applied Physics},
-  vol.~94, pp.~1222--1228, July 2003.
-
-\bibitem{Alan:2004tq}
-S.~M. Alam, {\em Design Tool and Methodologies for Interconnect Reliability
-  Analysis in Integrated Circuits}.
-\newblock PhD thesis, Massachusetts Institute of Technology, September 2004.
-
-\bibitem{HauRiege:2000}
-S.~P. Hau-Riege and C.~V. Thompson, ``{Electromigration saturation in a simple
-  interconnect tree},'' {\em Journal of Applied Physics}, vol.~88,
-  pp.~2382--2385, September 2000.
-
-\bibitem{Hau-Riege:2000phd}
-S.~Hau-Riege, {\em {New Methodologies for Interconnect Reliability Assessments
-  of Integrated Circuits}}.
-\newblock PhD thesis, Massachusetts Institute of Technology, June 2000.
-
-\bibitem{Clement:1999tcad}
-J.~J. Clement, S.~P. Riege, R.~Cvijetic, and C.~V. Thompson, ``{Methodology for
-  electromigration critical threshold design rule evaluation},'' {\em IEEE
-  Trans. on Computer-aid Design of Integrated Circuits and Systems}, vol.~18,
-  no.~5, pp.~576--581, 1999.
-
-\bibitem{Abbasinasab:2015ISPD}
-A.~Abbasinasab and M.~Marek-Sadowska, ``Blech effect in interconnects:
-  applications and design guidelines,'' in {\em International Symposium on
-  Physical Design (ISPD)}, pp.~111--118, 2015.
-
-\bibitem{Abraham:1974}
-F.~Abraham, {\em {Homogeneous Nucleation Theory}}.
-\newblock New York: Academic Press, 1974.
-
-\bibitem{Suo:book'03}
-Z.~Suo, {\em Reliability of Interconnect Structures}, vol.~8 of {\em
-  Comprehensive Structural Integrity}.
-\newblock Amsterdam: Elsevier, 2003.
-
-\bibitem{Lin:2013dmr}
-M.~Lin and A.~Oates, ``{An electromigration failure distribution model for
-  short-length conductors incorporating passive sinks/reservoirs},'' {\em IEEE
-  Transactions on Device and Materials Reliability}, vol.~13, pp.~322--326,
-  March 2013.
-
-\bibitem{Sukharev:2015jap}
-V.~Sukharev, X.~Huang, and S.~X.-D. Tan, ``Electromigration induced stress
-  evolution under alternate current and pulse current loads,'' {\em Journal of
-  Applied Physics}, vol.~118, pp.~034504--1--034504--10, 2015.
-
-\bibitem{Alam:2004ISQED}
-S.~Alam, G.~Lip, C.~Thompson, and D.~Troxel, ``Circuit level reliability
-  analysis of cu interconnects,'' in {\em International Symposium on Quality
-  Electronic Design (ISQED)}, pp.~238--243, 2004.
-
-\bibitem{Gan:2003MRSSP}
-C.~Gan, C.~Thompson, K.~Pey, W.~Choi, C.~Chang, and Q.~Guo, ``Experimental
-  characterization of the reliability of multi-terminal dual-damascene copper
-  interconnect trees,'' in {\em Materials Research Society Symposium
-  Proceedings (MRSSP)}, pp.~121--126, 2003.
 
 \bibitem{ChenHuang:DAC'15}
 H.~Chen, S.~X.-D. Tan, V.~Sukharev, X.~Huang, and T.~Kim, ``Interconnect
   reliability modeling and analysis for multi-branch interconnect trees,'' in
   {\em Proc. Design Automation Conf. (DAC)}, June 2015.
+
+\bibitem{ChenTan:TCAD'16}
+H.~Chen, X.~Tan, X.~Huang, T.~Kim, and V.~Sukharev, ``Analytical modeling and
+  characterization of electromigration effects for multi-branch interconnect
+  trees,'' {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems}, vol.~35, pp.~1811--1824, Nov. 2016.
+
+\bibitem{Clement:1999tcad}
+J.~J. Clement, S.~P. Riege, R.~Cvijetic, and C.~V. Thompson, ``{Methodology for
+  Electromigration Critical Threshold Design Rule Evaluation},'' {\em IEEE
+  Trans. on Computer-Aided Design of Integrated Circuits and Systems}, vol.~18,
+  no.~5, pp.~576--581, 1999.
+
+\bibitem{Sukharev:2015jap}
+V.~Sukharev, X.~Huang, and S.~X.-D. Tan, ``{Electromigration Induced Stress
+  Evolution Under Alternate Current and Pulse Current Loads},'' {\em Journal of
+  Applied Physics}, vol.~118, pp.~034504--1--034504--10, 2015.
+
+\bibitem{HuangTan:TCAD'16}
+X.~Huang, A.~Kteyan, X.~Tan, and V.~Sukharev, ``Physics-based electromigration
+  models and full-chip assessment for power grid networks,'' {\em IEEE Trans.
+  on Computer-Aided Design of Integrated Circuits and Systems}, vol.~35,
+  pp.~1848--1861, Nov. 2016.
+
+\bibitem{SunDemircan:ICCAD'16}
+Z.~Sun, E.~Demircan, T.~Kim, X.~Huang, T.~Kim, and S.~X.-D. Tan,
+  ``Voltage-based electromigration immortality check for general multi-branch
+  interconnects,'' in {\em Proc. Int. Conf. on Computer Aided Design (ICCAD)},
+  2016.
 
 \end{thebibliography}
