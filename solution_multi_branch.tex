@@ -26,7 +26,7 @@ x}[\kappa_{n}(\frac{\partial \sigma_{n}}{\partial
 x}+G_{n})],\;l_{n-1}\leq x \leq l_n.
  \end{split}
  \end{equation}
-In \eqref{eq:general_interconnect_tree}, $\kappa_{i}$ and $G_i$ ($i=1,2,\cdots,n$) are the stress diffusivity and the EM driving force for each segment wire.  
+In \eqref{eq:general_interconnect_tree}, $\kappa_{i}$ and $G_i$ ($i=1,2,\cdots,n$) are the stress diffusivity and the EM driving force for each segment wire.
 Boundary conditions for these equations are given as the follows:
  \begin{equation} \label{bc:general_interconnect_tree}
 \begin{split}
@@ -47,20 +47,20 @@ x}+G_n)=0,\;x=l_n.
 Initial conditions for the void nucleation phase are given by $\sigma_i=0$ at $t=0$ at each segment. The Laplace transformation technique can be used to obtain an accurate closed-form expression for the void stress evolution equations \eqref{eq:general_interconnect_tree}. For the sake of simplicity, we need to assume that $\kappa_1=\kappa_2=\cdots=\kappa_k$. After transforming \eqref{eq:general_interconnect_tree}-\eqref{bc:general_interconnect_tree} by the Laplace transformation technique, we get a system of ordinary differential equations (ODEs). In order to derive the solution of each ODE, we first need to introduce the following notations:
 \begin{equation} \label{generalNotations}
 \begin{split}
-&\xi_{n,1}^{i}=l_n+2m(l_n-l_0)-x,\\
-&\xi_{n,2}^{i}=(2l_n-l_0)+2m(l_n-l_0)-x,\\
-&\xi_{n,2j+1}^{i}=(2l_n-l_j)+2m(l_n-l_0)-x,\\
-&\xi_{n,2j+2}^{i}=\left\{
+&\xi_{n,1}^{i}(m,x)=l_n+2m(l_n-l_0)-x,\\
+&\xi_{n,2}^{i}(m,x)=(2l_n-l_0)+2m(l_n-l_0)-x,\\
+&\xi_{n,2j+1}^{i}(m,x)=(2l_n-l_j)+2m(l_n-l_0)-x,\\
+&\xi_{n,2j+2}^{i}(m,x)=\left\{
    \begin{aligned}
    &(2l_n-2l_0+l_j)+2m(l_n-l_0)-x,\;\\
    &\qquad\qquad\qquad\qquad\qquad\quad 0<j<i,  \\
    &l_j+2m(l_n-l_0)-x,\;i\leq j\leq n-1, \\
       \end{aligned}
    \right. \\
-&\eta_{n,1}^{i}=(l_n-2l_0)+2m(l_n-l_0)+x,\\
-&\eta_{n,2}^{i}=-l_0+2m(l_n-l_0)+x,\\
-&\eta_{n,2j+1}^{i}=(l_j-2l_0)+2m(l_n-l_0)+x,\\
-&\eta_{n,2j+2}^{i}=\left\{
+&\eta_{n,1}^{i}(m,x)=(l_n-2l_0)+2m(l_n-l_0)+x,\\
+&\eta_{n,2}^{i}(m,x)=-l_0+2m(l_n-l_0)+x,\\
+&\eta_{n,2j+1}^{i}(m,x)=(l_j-2l_0)+2m(l_n-l_0)+x,\\
+&\eta_{n,2j+2}^{i}(m,x)=\left\{
    \begin{aligned}
    &-l_j+2m(l_n-l_0)+x,\;0<j<i,  \\
    &(2l_n-l_j-2l_0)+2m(l_n-l_0)+x,\; \\
@@ -84,8 +84,16 @@ where the complementary error function $\texttt{erfc}\{x\}$ is defined as $\text
  \end{split}
  \end{equation}
 
-It should be noted that the present analysis method in analytical characterization is similar to what has been reported in our early work of analytical modeling of electromigration for multi-branch interconnect tree. However, the purpose of this paper is not to develop any new analysis method, but to illustrate the closed-form expression for the solution of stress evolution equations for more complex interconnect trees embedded in the frequently employed circuits.
-
+In practical calculation, we should develop an approximate analytic formula of the exact series solution \eqref{eq:general_solution} for multi-segment interconnect wire. The approximate solution using the first dominant term for each segment in the interconnect wire provides
+\begin{equation} \label{eq:approximate_solution}
+\begin{split}
+&\sigma_{n,i}(x,t)\approx-\{G_ng(\xi_{n,1}^{i}(0,x),t)-G_1g(\xi_{n,2}^{i}(0,x),t)\\
+&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\xi_{n,2j+1}^{i},t)(0,x)-g(\xi_{n,2j+2}^{i}(0,x),t))\}\\
+&-\{G_ng(\eta_{n,1}^{i}(0,x),t)-G_1g(\eta_{n,2}^{i}(0,x),t)\\
+&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\eta_{n,2j+1}^{i}(0,x),t)-g(\eta_{n,2j+2}^{i}(0,x),t))\}.
+ \end{split}
+ \end{equation}
+It should be noted that the present analysis method in analytical characterization is similar to what has been reported in our early work of analytical modeling of electromigration for multi-branch interconnect tree. However, the purpose of this paper is not to develop any new analysis method, but to illustrate the closed-form expression for the solution of stress evolution equations for more complex interconnect trees embedded in the frequently employed circuits. 
 
 
 %After transforming all the equations and the corresponding BC into Laplace space we get a system of $n$ equations similar to \eqref{eq:dotted_I_tree_lap} and BC represented by $n+1$ equations similar to \eqref{bc:dotted_I_tree_lap}. Solution of each ODE represented by \eqref{eq:dotted_I_tree_fre} with two unknown parameters, which will be found from BC, similarly to what was done in the case of two-segments/three terminals case, \eqref{cofficients_I}. A problem that we are solving is determination of the moment of time and location on the $\mathrm{V_{DD}}$ rail when and where the first void will be nucleated. To do this we do not need to make the inverse Laplace transformation. It is enough to compare the stress in the Laplace space $\sigma_i(x,s)$ with the Laplace transform of the critical stress. It should be also taken into account that not all junctions but just some of them can provide a condition for void nucleation: $\sigma=\sigma_{crit}$. Basically just two types of junctions characterized by specific configurations of the current directions should be considered. First type is the terminating segments serving as the current outlets (electron cathodes), and second the junctions separating two segments with electron flows directed outward this junctions.
