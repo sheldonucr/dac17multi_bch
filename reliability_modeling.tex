@@ -32,7 +32,7 @@ by:~\cite{Korhonen:jap1993}
 % the atomic diffusivity, $B$ is the effective bulk modulus, $\Omega$ is
 % the atomic volume, $k$ is the Boltzman's constant, $T$ is the absolute
 % temperature, $Z^*$ is the effective charge number, $e$ is the electron
-% charge, $\rho$ is the resistivity, and $j$ is the current density. 
+% charge, $\rho$ is the resistivity, and $j$ is the current density.
 %
 % The advantage of this model is that the evolution of hydrostatic
 % stress in a confined line can be calculated in a closed-form
@@ -43,7 +43,7 @@ by:~\cite{Korhonen:jap1993}
 % it can not be used to calculate the hydrostatic stress during EM for
 % multi-segment interconnect wires. In this paper, we extend the
 % Korhonen equation \eqref{eq:basic_em} to allow for a general
-% multi-segment interconnect wire. 
+% multi-segment interconnect wire.
 %
 % For the convenience of following
 % description, we rewrite the Korhonen equation \eqref{eq:basic_em} as a
@@ -88,10 +88,10 @@ with multi-branch interconnects, in which the projected steady-state
 EM-induced stress of each branch induced by is used to compute the
 total stress distributions in a tree and then the relative branch
 stress is used to calculate the time to failure. The drawback of this
-work is that it totally ignore all the dynamic evolutions of stress
+work is that it totally ignores all the dynamic evolutions of stress
 over time and the interactions of void nucleation process among
 branches. As a result, it still can't provide analytic expression for
-provide the time-dependent hydrostatic evolution of hydrostatic stress
+the time-dependent hydrostatic evolution of hydrostatic stress
 to determine the failures for multi-branch interconnect wires.
 
 Following another direction, a voltage-based EM modeling and
@@ -99,17 +99,17 @@ immortality check technique for general interconnect tree structures
 has been proposed recently~\cite{SunDemircan:ICCAD'16}. In this work,
 the projected steady-state stresses for each branch or segment also
 calculated and then the steady state stress at every node of the tree
-are then computed in terms of voltage voltages and wire layout
+are then computed in terms of voltages and wire layout
 parameters. By checking the largest stress over all the tree, one can
 ensure that the tree never fail if largest stress is less than the
-critical stress. But this method still can't give the time to failure
-the wire fail the immortality check. A good research effort was
+critical stress. But this method still can't give the time to predict
+the wire fail for the immortality check. A good research effort was
 carried out recently to develop stress evolution analytic solution for
 multi-branch interconnect
 tree~\cite{ChenHuang:DAC'15,ChenTan:TCAD'16}.  In this approach,
-analytic solutions by means of Laplace transformation method for
-stress evolution were dervied for three specific interconnect
-strucutres: the straight-line 3-terminal wires, the T-shape 4-terminal
+analytic solutions by means of the Laplace transformation method for
+stress evolution were derived for three specific interconnect
+structures: the straight-line 3-terminal wires, the T-shape 4-terminal
 wires and the cross-shape 5-terminal wires. It was also shown that a
 few dominant terms can be used for sufficiently accurate solution.
 

@@ -7,7 +7,7 @@ represents a long metal wire with $n$ segments and $n+1$ terminal
 (vias) connecting different metal layers. Since many complex
 interconnect structures such as power grids could be decomposed to
 hierarchically in smaller interconnect tree components like this
-structure , the accurate analytic closed-form expressions describing
+structure, the accurate analytic closed-form expressions describing
 hydrostatic stress evolution for multi-branch interconnect trees will
 lay the groundwork for the EM reliability analysis of those global
 interconnect networks.
@@ -29,8 +29,8 @@ decoupled Korhonen equations and each of them governing one segment of
 the multi-segment wire. The partial differential equations (PDE) are
 linked by the boundary conditions representing the continuity of
 stress and fluxes at the junctions in the long metal wire. As a
-result, the PED in ~\eqref{eq:basic_em_s} can be described as follows:
-\begin{equation} \label{eq:general_interconnect_tree}
+result, the PDE in ~\eqref{eq:basic_em_s} can be described as follows:
+\begin{equation} \label{eq:general_interconnect_tree}\small
 \begin{split}
 &\frac{\partial \sigma_1}{\partial t}=\frac{\partial }{\partial
 x}[\kappa_1(\frac{\partial \sigma_1}{\partial x}+G_1)],\;l_0\leq x \leq l_1 \\
@@ -48,9 +48,9 @@ x}+G_{n})],\;l_{n-1}\leq x \leq l_n.
  \end{equation}
  In \eqref{eq:general_interconnect_tree}, $\kappa_{i}$ and $G_i$
  ($i=1,2,\cdots,n$) are the stress diffusivity and the EM driving
- force for each segment wire.  Boundary conditions for these equations
+ force for each segment wire. Boundary conditions for these equations
  are given as the follows:
- \begin{equation} \label{bc:general_interconnect_tree}
+ \begin{equation} \label{bc:general_interconnect_tree}\small
 \begin{split}
 &\kappa_1(\frac{\partial \sigma_1}{\partial x}+G_1)=0,\;x=l_0,\\
 &\sigma_1=\sigma_2,\;x=l_1,\\
@@ -67,43 +67,60 @@ x}+G_n)=0,\;x=l_n.
  \end{split}
  \end{equation}
  Initial conditions for the void nucleation phase are given by
- $\sigma_i=0$ at $t=0$ at each segment. 
+ $\sigma_i=0$ at $t=0$ at each segment.
 
  To solve the resulting decoupled equations in
  \eqref{eq:general_interconnect_tree} subject to the boundary
- conditions ~\eqref{bc:general_interconnect_tree}, the Laplace
- transformation technique is used to convert the PDE into Laplace
+ conditions \eqref{bc:general_interconnect_tree}, the Laplace
+ transformation technique is used to convert the PDE into the Laplace
  domain. For the sake of simplicity, we assume that
- $\kappa_1=\kappa_2=\cdots=\kappa_k$. After transforming
+ $\kappa_1=\kappa_2=\cdots=\kappa_n$ and the EM driving force $G_i$ does not
+ depend on the time $t$ and the position $x$. After transforming
  \eqref{eq:general_interconnect_tree}-\eqref{bc:general_interconnect_tree}
  by the Laplace transformation technique, we get a system of ordinary
- differential equations (ODEs). In order to derive the solution of
- each ODE, we first need to introduce the following notations:
-\begin{equation} \label{generalNotations}
+ differential equations (ODEs):
+  \begin{equation} \label{eq:multi_segment_ode}\small
+\begin{split}
+&\frac{d^2\hat{\sigma}_1(x,s)}{dx^2}=\frac{s}{\kappa_1}\hat{\sigma}_1(x,s),\;l_0\leq x\leq l_1,\\
+&\frac{d^2\hat{\sigma}_2(x,s)}{dx^2}=\frac{s}{\kappa_2}\hat{\sigma}_2(x,s),\;l_1\leq x\leq l_2,\\
+&\cdots\cdots\\
+&\frac{d^2\hat{\sigma}_{n-1}(x,s)}{dx^2}=\frac{s}{\kappa_{n-1}}\hat{\sigma}_{n-1}(x,s),\;l_{n-2}\leq x\leq l_{n-1},\\
+&\frac{d^2\hat{\sigma}_{n}(x,s)}{dx^2}=\frac{s}{\kappa_{n}}\hat{\sigma}_{n}(x,s),\;l_{n-1}\leq x\leq l_{n},
+ \end{split}
+ \end{equation} 
+where $\hat{\sigma}_{i}(x,s)=\int_0^{+\infty}e^{-st}\sigma_{i}(x,t)dt\;(i=1,2,\cdots,n)$ is the Laplace transform of $\sigma_{i}(x,t)$.
+By using the Laplace transform of the boundary conditions \eqref{bc:general_interconnect_tree}, 
+the analytical solution $\hat{\sigma}_{i}(x,s)$ of \eqref{eq:multi_segment_ode} can be obtained in the Laplace domain. Due to limit space,
+we omit the derivation process of obtaining $\hat{\sigma}_{i}(x,s)$. 
+
+By taking the inverse Laplace transform of $\hat{\sigma}_{i}(x,s)$, we can obtain the analytical solution $\sigma_i(x,t)$
+for each PDE in \eqref{eq:general_interconnect_tree}. Before we present the concrete expression of $\sigma_i(x,t)$, the following notations
+need to be introduced: 
+\begin{equation} \label{generalNotations}\small
 \begin{split}
 &\xi_{n,1}^{i}(m,x)=l_n+2m(l_n-l_0)-x,\\
 &\xi_{n,2}^{i}(m,x)=(2l_n-l_0)+2m(l_n-l_0)-x,\\
-&\xi_{n,2j+1}^{i}(m,x)=(2l_n-l_j)+2m(l_n-l_0)-x,\\
-&\xi_{n,2j+2}^{i}(m,x)=\left\{
+&\xi_{n,2p+1}^{i}(m,x)=(2l_n-l_p)+2m(l_n-l_0)-x,\\
+&\xi_{n,2p+2}^{i}(m,x)=\left\{
    \begin{aligned}
-   &(2l_n-2l_0+l_j)+2m(l_n-l_0)-x,\;\\
-   &\qquad\qquad\qquad\qquad\qquad\quad 0<j<i,  \\
-   &l_j+2m(l_n-l_0)-x,\;i\leq j\leq n-1, \\
+   &(2l_n-2l_0+l_p)+2m(l_n-l_0)-x,\;\\
+   &\qquad\qquad\qquad\qquad\qquad\quad 1\leq p<i,  \\
+   &l_p+2m(l_n-l_0)-x,\;i\leq p\leq n-1, \\
       \end{aligned}
    \right. \\
 &\eta_{n,1}^{i}(m,x)=(l_n-2l_0)+2m(l_n-l_0)+x,\\
 &\eta_{n,2}^{i}(m,x)=-l_0+2m(l_n-l_0)+x,\\
-&\eta_{n,2j+1}^{i}(m,x)=(l_j-2l_0)+2m(l_n-l_0)+x,\\
-&\eta_{n,2j+2}^{i}(m,x)=\left\{
+&\eta_{n,2p+1}^{i}(m,x)=(l_p-2l_0)+2m(l_n-l_0)+x,\\
+&\eta_{n,2p+2}^{i}(m,x)=\left\{
    \begin{aligned}
-   &-l_j+2m(l_n-l_0)+x,\;0<j<i,  \\
-   &(2l_n-l_j-2l_0)+2m(l_n-l_0)+x,\; \\
-   &\qquad\qquad\qquad\qquad\qquad i\leq j \leq n-1. \\
+   &-l_p+2m(l_n-l_0)+x,\;1\leq p<i,  \\
+   &(2l_n-l_p-2l_0)+2m(l_n-l_0)+x,\; \\
+   &\qquad\qquad\qquad\qquad\qquad i\leq p \leq n-1, \\
    \end{aligned}
    \right.
 \end{split}
 \end{equation}
-where $n$ is the number of segments, $i$ is the index of current segment, and $j$ indicates (?)
+where $n$ is the number of segments, $i$ $(i=1,2,\cdots,n)$ is the index of current segment, and $p$ is an integer from $1$ to $n-1$.
 
 Similar to the analytical method introduced in
 \cite{ChenHuang:DAC'15}, we first introduce the following basic
@@ -114,32 +131,35 @@ t}}-x\times\texttt{erfc}\{\frac{x}{2\sqrt{\kappa t}}\}.
 \end{equation}
 where the complementary error function $\texttt{erfc}\{x\}$ is defined
 as
-$\texttt{erfc}\{x\}=\frac{2}{\sqrt{\pi}}\int_x^{+\infty}e^{-t^2}dt$. 
-
+$\texttt{erfc}\{x\}=\frac{2}{\sqrt{\pi}}\int_x^{+\infty}e^{-t^2}dt$.
 As a result, we show that a general form of analytical solutions of stress evolution
-equations for all segments can be written as follows
-\begin{equation} \label{eq:general_solution}
+equations for the $i$-th $(i=1,2,\cdots,n)$ segment can be written as follows
+\begin{equation} \label{eq:general_solution}\small
 \begin{split}
-\sigma_{n,i}&(x,t)=-\sum\limits_{m=0}^{+\infty}\{G_ng(\xi_{n,1}^{i},t)-G_1g(\xi_{n,2}^{i},t)\\
-&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\xi_{n,2j+1}^{i},t)-g(\xi_{n,2j+2}^{i},t))\}\\
-&-\sum\limits_{m=0}^{+\infty}\{G_ng(\eta_{n,1}^{i},t)-G_1g(\eta_{n,2}^{i},t)\\
-&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\eta_{n,2j+1}^{i},t)-g(\eta_{n,2j+2}^{i},t))\}.
+&\sigma_{i}(x,t)=-\sum\limits_{m=0}^{+\infty}\{G_ng(\xi_{n,1}^{i}(m,x),t)-G_1g(\xi_{n,2}^{i}(m,x),t)\\
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(m,x),t)-g(\xi_{n,2p+2}^{i}(m,x),t))\}\\
+&-\sum\limits_{m=0}^{+\infty}\{G_ng(\eta_{n,1}^{i}(m,x),t)-G_1g(\eta_{n,2}^{i}(m,x),t)\\
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(m,x),t)-g(\eta_{n,2p+2}^{i}(m,x),t))\}.
  \end{split}
  \end{equation}
 
  Since the solutions contain infinite number of terms in
  \eqref{eq:general_solution}, we are more interested in a solution
  with a few dominant terms for fast computation. The approximate
- solution using the first dominant term for each segment in the
- interconnect wire can be written as 
-\begin{equation} \label{eq:approximate_solution}
+ solution using the first dominant term $(m=0)$ for the $i$-th $(i=1,2,\cdots,n)$ segment in the
+ interconnect wire can be written as
+\begin{equation} \label{eq:approximate_solution}\small
 \begin{split}
-&\sigma_{n,i}(x,t)\approx-\{G_ng(\xi_{n,1}^{i}(0,x),t)-G_1g(\xi_{n,2}^{i}(0,x),t)\\
-&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\xi_{n,2j+1}^{i},t)(0,x)-g(\xi_{n,2j+2}^{i}(0,x),t))\}\\
+&\sigma_{i}(x,t)\approx-\{G_ng(\xi_{n,1}^{i}(0,x),t)-G_1g(\xi_{n,2}^{i}(0,x),t)\\
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(0,x),t)-g(\xi_{n,2j+2}^{i}(0,x),t))\}\\
 &-\{G_ng(\eta_{n,1}^{i}(0,x),t)-G_1g(\eta_{n,2}^{i}(0,x),t)\\
-&-\sum\limits_{j=1}^{n-1}\frac{G_{j+1}-G_j}{2}(g(\eta_{n,2j+1}^{i}(0,x),t)-g(\eta_{n,2j+2}^{i}(0,x),t))\}.
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(0,x),t)-g(\eta_{n,2p+2}^{i}(0,x),t))\}.
  \end{split}
  \end{equation}
+It should be noted that when the wire segment stress $\sigma_{i}(x,t)$ reaches 
+a critical stress $\sigma_{crit}$, then the void nucleation time $t_{nuc}$ can be calculated for each segment by
+solving the equation $\sigma_{i}(x,t_{nuc})=\sigma_{crit}$.
+ 
  % It should be noted that the present analysis method in analytical
  % characterization is similar to what has been reported in our early
  % work of analytical modeling of electromigration for multi-branch

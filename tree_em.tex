@@ -66,7 +66,7 @@
 \begin{abstract}
 
   Electromigration (EM) is the major concern for the VLSI back end of
-  the line (BEOL) reliabiliity. For EM modeling and assessment, one
+  the line (BEOL) reliability. For EM modeling and assessment, one
   important problem is to perform fast EM time to failure analysis for
   practical interconnect layouts such as clock and power/ground
   networks consisting of many multi-segment wires.  However, existing
@@ -74,15 +74,15 @@
   single wire. Although there are some early effects to resolve this
   issue, but there is no general analytic and compact model developed
   to estimate the EM-induced stress evolution, which is required to
-  predict the time to failure. In this paper, we propose a new analyic
-  expression hydrstatic stress calculation for general multi-segment
-  interconnect wire with mutiple terminals. The new method is based on
+  predict the time to failure. In this paper, we propose a new analytic
+  expression hydrostatic stress calculation for general multi-segment
+  interconnect wire with multiple terminals. The new method is based on
   the Laplace transformation method on the Korhonen's equation with
-  blocked atom flux boundary conditons. The analytical solutions in
+  blocked atom flux boundary conditions. The analytical solutions in
   terms of a set of auxiliary basis functions using the complementary
   error function agree well with the numerical analysis results. Our
   analysis further demonstrates that using the first one dominant
-  basis functions can lead to 2\% error, which is sufficient for
+  basis function approximation can lead to 2\% error, which is sufficient for
   practical EM analysis.
 
 
@@ -99,7 +99,7 @@
 % the EM model review
 \input reliability_modeling.tex
 
-% the new analyic solution
+% the new analytic solution
 \input solution_multi_branch.tex
 
 %The results
@@ -110,14 +110,15 @@
 
 \section{Conclusion}
 \label{sec:conclusion}
-
 In this paper, we have proposed a new analysis method for
 multi-segment wires considering EM effects during the void nucleation
-phase. The new analytical model shows an excellent agreement with the
-detailed numerical analysis obtained from COMSOL.
-
-
-
+phase, which can be used for practical VLSI interconnect design techniques.
+An exact series solution to the stress evolution equation for multi-segment wires
+has been derived by using the Laplace transformation technique. The obtained physics-based
+analytic EM model results are in good agreement with calculation by the finite element analysis
+tool COMSOL. Experiment results demonstrates that using the first dominant term approximation of
+the exact series solution can lead to around 2\% error, which satisfies the requirement of
+practical EM reliability analysis.  
 
 \bibliographystyle{ieeetr}
 
