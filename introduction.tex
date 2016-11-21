@@ -26,8 +26,36 @@ wire strucutres.  For practical VLSI chips, the interconnects such as
 clock and power grid networks typically consist of multi-branch metal
 segments representing a continuously connected, highly conductive
 metal (Cu) lines within one layer of metallization, terminating at
-diffusion barriers. The EM effects in those branches are not
-independent and they have to be considered simultaneously.
+diffusion barriers, which are commonly seen in the power/ground
+network in practical VLSI layouts.  The EM effects in those branches
+are not independent and they have to be considered simultaneously.  To
+further illustrate this, we consider a 4-segment and 5-terminal
+interconnect wire loaded with DC voltage distribuation as shown in
+Fig.~\ref{fig:4seg-demo}. The finite element analysis (FEA) can be
+used to calculate the calculate the current and the resulting
+hydrostatic stress along the interconnect wire.  The distributions
+of the hydrostatic stress, current density and voltage potential along
+this wire are shown in Fig. \ref{fig:4seg-multiplot} (from top to
+bottom) respectively. As we can see that although the segment 2 has
+almost zero current density, its tensile (positive) stress is the
+highest. As a result, we have to analyze all the stress evolution as a
+whole instead of treating each segment seperately as done in the
+existing EM assessment methods.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{4seg_demo}
+\caption{Electrical current in a 4-segment wire structure (J: current direction)}
+\label{fig:4seg-demo}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{4seg_multiplot}
+\caption{Hydrostatic stress, current density, and voltage distribution in the 4-segment wire structure}
+\label{fig:4seg-multiplot}
+\end{figure}
+
 
 Recently some physics-based EM analysis methods for the
 TSV and power grid networks have been proposed based on solving the
@@ -56,28 +84,8 @@ analytic solutions for stress evolution were derived for a few
 specific interconnect structures. Moreover, those those analytic
 expressions are still can be applied to more general structures such
 as the multi-segment interconnect wires as shown in
-Fig.~\ref{fig:4seg-demo}, which are commonly seen in the
-power/ground network in practical VLSI layouts. As a shown in
-Fig.~\ref{fig:4seg-multiplot}, hydrostatic stress is predicted to be able to
-noticeably distributed on a certain segment that has almost zero current
-density, as well as those segments carrying significant electrical currents.
-This shows the distinct benefit and accuracy improvement of considering
-multi-branch coupling when calculating EM induced stress, or further failure
-prediction.
 
-\begin{figure}[!th]
-\centering
-\includegraphics[width=0.95\columnwidth]{4seg_demo}
-\caption{Electrical current in a 4-segment wire structure (J: current direction)}
-\label{fig:4seg-demo}
-\end{figure}
 
-\begin{figure}[!th]
-\centering
-\includegraphics[width=0.95\columnwidth]{4seg_multiplot}
-\caption{Hydrostatic stress, current density, and voltage distribution in the 4-segment wire structure}
-\label{fig:4seg-multiplot}
-\end{figure}
 
 % Many researchers have studied the evolution of stress due
 % to electromigration. Kirchheim proposed a physically based model in
