@@ -52,18 +52,31 @@ hydrostatic evolution of hydrostatic stress, which ultimately
 determines the failures for multi-branch interconnect wires.  Recently
 EM models for multi-branch interconnect tree have been
 proposed~\cite{ChenHuang:DAC'15,ChenTan:TCAD'16}. In this approach,
-analytic solutions for stress evoluation were dervied for a few
-specific interconnect structures. However, those those analytic
+analytic solutions for stress evolution were derived for a few
+specific interconnect structures. Moreover, those those analytic
 expressions are still can be applied to more general structures such
 as the multi-segment interconnect wires as shown in
-Fig.~\ref{fig:multiseg-demo}, which are commonly seen in the
-power/ground network in practical VLSI layouts.
+Fig.~\ref{fig:4seg-demo}, which are commonly seen in the
+power/ground network in practical VLSI layouts. As a shown in
+Fig.~\ref{fig:4seg-multiplot}, hydrostatic stress is predicted to be able to
+noticeably distributed on a certain segment that has almost zero current
+density, as well as those segments carrying significant electrical currents.
+This shows the distinct benefit and accuracy improvement of considering
+multi-branch coupling when calculating EM induced stress, or further failure
+prediction.
 
 \begin{figure}[!th]
 \centering
-\includegraphics[width=0.9\columnwidth]{multiseg_demo.eps}
-\label{fig:multiseg-demo}
-\caption{Electrical current in a multi-segment wire structure (J: current direction)}
+\includegraphics[width=0.95\columnwidth]{4seg_demo}
+\caption{Electrical current in a 4-segment wire structure (J: current direction)}
+\label{fig:4seg-demo}
+\end{figure}
+
+\begin{figure}[!th]
+\centering
+\includegraphics[width=0.95\columnwidth]{4seg_multiplot}
+\caption{Hydrostatic stress, current density, and voltage distribution in the 4-segment wire structure}
+\label{fig:4seg-multiplot}
 \end{figure}
 
 % Many researchers have studied the evolution of stress due
