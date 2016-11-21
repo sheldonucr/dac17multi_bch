@@ -1,16 +1,19 @@
 \section{Accurate analytical modeling for hydrostatic stress evolution}
 \label{sec:multi_segment}
-In this paper, an accurate analytical modeling for transient
-hydrostatic stress analysis for a general realistic interconnect
-structure as shown in Fig.\ref{fig:interconnect_tree}, which
-represents a long metal wire with $n$ segments and $n+1$ terminal
-(vias) connecting different metal layers. Since many complex
-interconnect structures such as power grids could be decomposed to
-hierarchically in smaller interconnect tree components like this
-structure, the accurate analytic closed-form expressions describing
-hydrostatic stress evolution for multi-branch interconnect trees will
-lay the groundwork for the EM reliability analysis of those global
-interconnect networks.
+
+In this section, we present the new analytic solution and compact
+models for EM-induced stress evolution in a confined multi-segment
+interconnect wires as shown in Fig.~\ref{fig:4seg-demo}. To facilitate
+our analysis, we are looking at a abstract general multi-segment
+interconnect structure with one continous metallization layer shown in
+Fig.\ref{fig:interconnect_tree}, which represents a long metal wire
+with $n$ segments and $n+1$ terminal (vias) (presented by blue blocks)
+connecting different metal layers.  Since many complex interconnect
+structures such as power grids could be decomposed hierarchically into
+smaller interconnect tree components like this structure, the accurate
+analytic closed-form expressions describing hydrostatic stress
+evolution for multi-branch interconnect trees will lay the groundwork
+for the EM reliability analysis of those global interconnect networks.
 
 \label{sec:analytical_stress}
 \begin{figure}[ht] \centering
@@ -20,16 +23,18 @@ interconnect networks.
   \vspace{-0.12in}
 \end{figure}
 
+\subsection{The analytic solution for stress evolution for multi-segment interconnect wires}
 The stress evolution process for each segment in
 Fig.\ref{fig:interconnect_tree} can be described by a single
 Korhonen's equation as shown in \eqref{eq:basic_em_s}. But solving
 such equation directly is more difficult.  In stead, in our approach,
-we decouple the original single Korhonen's equation into $n$
-decoupled Korhonen equations and each of them governing one segment of
-the multi-segment wire. The partial differential equations (PDE) are
+we decouple the original single Korhonen's equation into $n$ decoupled
+Korhonen equations and each of them governing one segment of the
+multi-segment wire. The partial differential equations (PDE) are
 linked by the boundary conditions representing the continuity of
-stress and fluxes at the junctions in the long metal wire. As a
-result, the PDE in ~\eqref{eq:basic_em_s} can be described as follows:
+stress and fluxes at the junctions in the long metal
+wire. Specifically, the PDE in ~\eqref{eq:basic_em_s} can re-written
+into a number of decoupled PDEs as follows:
 \begin{equation} \label{eq:general_interconnect_tree}\small
 \begin{split}
 &\frac{\partial \sigma_1}{\partial t}=\frac{\partial }{\partial
@@ -93,9 +98,10 @@ By using the Laplace transform of the boundary conditions \eqref{bc:general_inte
 the analytical solution $\hat{\sigma}_{i}(x,s)$ of \eqref{eq:multi_segment_ode} can be obtained in the Laplace domain. Due to limit space,
 we omit the derivation process of obtaining $\hat{\sigma}_{i}(x,s)$. 
 
-By taking the inverse Laplace transform of $\hat{\sigma}_{i}(x,s)$, we can obtain the analytical solution $\sigma_i(x,t)$
-for each PDE in \eqref{eq:general_interconnect_tree}. Before we present the concrete expression of $\sigma_i(x,t)$, the following notations
-need to be introduced: 
+By taking the inverse Laplace transform of $\hat{\sigma}_{i}(x,s)$, we
+can obtain the analytical solution $\sigma_i(x,t)$ for each PDE in
+\eqref{eq:general_interconnect_tree}. Before we present the concrete
+expression of $\sigma_i(x,t)$, we introduce the following notations:
 \begin{equation} \label{generalNotations}\small
 \begin{split}
 &\xi_{n,1}^{i}(m,x)=l_n+2m(l_n-l_0)-x,\\
@@ -132,8 +138,10 @@ t}}-x\times\texttt{erfc}\{\frac{x}{2\sqrt{\kappa t}}\}.
 where the complementary error function $\texttt{erfc}\{x\}$ is defined
 as
 $\texttt{erfc}\{x\}=\frac{2}{\sqrt{\pi}}\int_x^{+\infty}e^{-t^2}dt$.
-As a result, we show that a general form of analytical solutions of stress evolution
-equations for the $i$-th $(i=1,2,\cdots,n)$ segment can be written as follows
+
+With those definitions, it turns out that a general form of analytical
+solutions of stress evolution equations for the $i$-th
+$(i=1,2,\cdots,n)$ segment can be derived as follows
 \begin{equation} \label{eq:general_solution}\small
 \begin{split}
 &\sigma_{i}(x,t)=-\sum\limits_{m=0}^{+\infty}\{G_ng(\xi_{n,1}^{i}(m,x),t)-G_1g(\xi_{n,2}^{i}(m,x),t)\\
@@ -143,11 +151,15 @@ equations for the $i$-th $(i=1,2,\cdots,n)$ segment can be written as follows
  \end{split}
  \end{equation}
 
- Since the solutions contain infinite number of terms in
- \eqref{eq:general_solution}, we are more interested in a solution
- with a few dominant terms for fast computation. The approximate
- solution using the first dominant term $(m=0)$ for the $i$-th $(i=1,2,\cdots,n)$ segment in the
- interconnect wire can be written as
+\subsection{The compact EM model and time to failure calculation}
+ We notice that the solution in \eqref{eq:general_solution} contains
+ infinite number of terms. One observation we have with Laplace
+ transformation based solution with infinite number of terms is that
+ we may just need to a few dominant terms for sufficient accuracy.
+ Fortunately, we show in experimental section that this is indeed a
+ case for our problem. For instance, we just keep the first dominant
+ term ($m=0$), then the solution for the $i$-th $(i=1,2,\cdots,n)$
+ segment, can be re-written as:
 \begin{equation} \label{eq:approximate_solution}\small
 \begin{split}
 &\sigma_{i}(x,t)\approx-\{G_ng(\xi_{n,1}^{i}(0,x),t)-G_1g(\xi_{n,2}^{i}(0,x),t)\\
@@ -156,9 +168,12 @@ equations for the $i$-th $(i=1,2,\cdots,n)$ segment can be written as follows
 &-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(0,x),t)-g(\eta_{n,2p+2}^{i}(0,x),t))\}.
  \end{split}
  \end{equation}
-It should be noted that when the wire segment stress $\sigma_{i}(x,t)$ reaches 
-a critical stress $\sigma_{crit}$, then the void nucleation time $t_{nuc}$ can be calculated for each segment by
-solving the equation $\sigma_{i}(x,t_{nuc})=\sigma_{crit}$.
+ By just use a few dominant terms, we can obtain the very compact EM
+ stress development models for the multi-segment interconnect wires.
+ It should be noted that when the wire segment stress
+ $\sigma_{i}(x,t)$ reaches a critical stress $\sigma_{crit}$, then the
+ void nucleation time $t_{nuc}$ can be calculated for each segment by
+ solving the equation $\sigma_{i}(x,t_{nuc})=\sigma_{crit}$.
  
  % It should be noted that the present analysis method in analytical
  % characterization is similar to what has been reported in our early
