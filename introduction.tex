@@ -3,10 +3,10 @@
 
 Electromigration is considered the top killer for today's copper dual
 damascene interconnect technology. Recently there is a renewed
-interests in EM modeling and mitigation techniques as EM-induced
+interest in EM modeling and mitigation techniques as EM-induced
 reliability is getting worse as technology advance.  ITRS predicts that
 the EM-induced lifetime of the interconnects will be reduced by half
-by each generation~\cite{ITRS}. To make this situation more worse,
+by each generation~\cite{ITRS}. To make this situation worse,
 many widely used EM models such as Black-Blech models are thought to
 be too conservative, which can lead to significant over
 designs~\cite{Bailey:semieng}.
@@ -38,7 +38,7 @@ density (middle) and voltage potential (bottom) along this wire are
 shown in Fig. \ref{fig:4seg-multiplot} respectively. As we can see
 that although the segment 2 has almost zero current density, its
 tensile (positive) stress is the highest. Hence it is no longer valid
-to we analyze the EM induced back stress for each individual wire
+to we analyze the EM-induced back stress for each individual wire
 segment separately as with existing methods. As a result, we have to
 analyze all the stress evolution as a whole instead of treating each
 segment separately as done in the existing EM assessment methods.
@@ -66,7 +66,7 @@ Those models treat the resistance changes of a wire over time as the
 atomic concentration changes due to atomic flux. Since these proposed
 methods solve the basic mass transport equations using the finite
 element method, they can only solve for very small structures such as
-one TSV structure. Complicated look-up table or models have to be
+one TSV structure. A complicated look-up table or models have to be
 built for different TSVs and wire segments for full-chip power grid
 analysis at reduced accuracy.
 
@@ -75,7 +75,7 @@ proposed recently in ~\cite{HuangYu:DAC'14} based on the hydrostatic
 stress diffusion equation~\cite{Korhonen:jap1993}. However, this EM
 model still works for one single wire segment. Although the new EM
 model has been extended to deal with multiple branch tree wire based
-on projected steady-state stress.  It still can't provide the
+on projected steady-state stress, it still cannot provide the
 time-dependent hydrostatic evolution of hydrostatic stress, which
 ultimately determines the failures for multi-branch interconnect
 wires.  Recently EM models for multi-branch interconnect tree have
@@ -168,8 +168,8 @@ The remainder of the paper is organized as follows. In Section
 and analysis methods for the stress evolution during EM in simple
 interconnect wires. Then we present the new analytic model for a
 general multi-segment interconnect wires in Section
-\ref{sec:multi_segment}. Experiment results and discussions for the a
-few multi-segment interconnect wire examples and accuracy comparison
+\ref{sec:multi_segment}. Experiment results and discussions for the
+multi-segment interconnect wire examples and accuracy comparison
 against COMSOL-based finite element analysis are presented in Section
 \ref{sec:experimental_results}. Concluding remarks are drawn in
 Section \ref{sec:conclusion}.

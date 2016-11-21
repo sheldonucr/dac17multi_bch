@@ -8,7 +8,7 @@ conducting electrons, results in metal density depletion at the
 cathode, and a corresponding metal accumulation at the anode end of
 the metal wire. Due to the passivation of copper wires from the dual
 damascene copper interconnect technology, hydrostatic stress will
-built up from the metal concentration changes at those nodes, which
+build up from the metal concentration changes at those nodes, which
 will lead to void nucleation when the stress reach to the critical
 stress and following up failures of the wires as results of the void
 growth.
@@ -74,11 +74,11 @@ as follows \cite{Korhonen:jap1993}:
 t}{L^2})}\}.
 \end{split}
 \end{equation}
-where $\sigma_T$ is the pre-existing residual stress due to thermal
+where $\sigma_T$ is the pre-existing residual stress due to a thermal
 process. If we only keep the slowest decaying term of the infinite
 series in \eqref{eq:korhonen_sol}, we can compute the time to
-nucleation. This happens when the wire stress $\sigma(x,t)$ sigma has
-reached a critical state stress value $\sigma_{crit}$, then the void
+nucleation. This happens when the wire stress $\sigma(x,t)$ has
+reached a critical stress $\sigma_{crit}$, then the void
 nucleation time $t_{nuc}$ can be obtained by solving the equation
 $\sigma(x,t_{nuc})=\sigma_{crit}$~\cite{HuangYu:DAC'14}.
 
@@ -103,7 +103,7 @@ steady state stress at every node of the tree are then computed in
 terms of node voltages and wire layout parameters. By checking the
 largest stress over all the tree nodes, one can ensure that the tree
 never fails if the largest stress is less than the critical stress. It
-is very help for fast EM immortality check. But this method still
+is very help for fast EM immortality check. But, this method still
 can't give the time when the wire is predicted to fail. Following a
 different direction, a research effort was carried out recently to
 develop time-dependent stress evolution analytic solution for
@@ -113,9 +113,10 @@ analytic solutions by means of the Laplace transformation method for
 stress evolution were derived for three specific interconnect
 structures: the straight-line 3-terminal wires, the T-shape 4-terminal
 wires and the cross-shape 5-terminal wires. It was also shown that a
-few dominant terms can be used for sufficiently accurate solution. But
-still, the proposed solution is not general enough for multi-segment
-interconnect wires shown in Fig.~\ref{fig:4seg-demo}.
+few dominant terms can be used for sufficiently accurate
+solution. But, the proposed solution is not still general enough for
+multi-segment interconnect wires shown in Fig.~\ref{fig:4seg-demo}.
+
 
 
 % \begin{figure}[ht] \centering \subfigure[]{
