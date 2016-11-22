@@ -72,18 +72,18 @@
   networks consisting of many multi-segment wires.  However, existing
   EM modeling and analysis techniques are mainly developed for a
   single wire. Although there exist some early effects to resolve this
-  issue, but no general analytic and compact model has been developed
-  to estimate the EM-induced stress evolution for predicting the time
-  to failure. In this paper, we propose a new analytic expression to
-  calculate hydrostatic stress evolution for general multi-segment
-  interconnect wire with multiple terminals. The new method is based
-  on the Laplace transformation method on the Korhonen's equation with
-  blocked atom flux boundary conditions. The analytical solutions in
-  terms of a set of auxiliary basis functions using the complementary
-  error function agree well with the numerical analysis results. Our
-  analysis further demonstrates that using the first one dominant
-  basis function approximation can lead to 2\% error, which is
-  sufficient for practical EM analysis.
+  issue, but no general analytic and compact models have been
+  developed to estimate the EM-induced stress evolution for predicting
+  the time to failure. In this paper, we propose a new analytic
+  expression to calculate hydrostatic stress evolution for general
+  multi-segment interconnect wire with multiple terminals. The new
+  method is based on the Laplace transformation method on the
+  Korhonen's equation with blocked atom flux boundary conditions. The
+  analytical solutions in terms of a set of auxiliary basis functions
+  using the complementary error function agree well with the numerical
+  analysis results. We further demonstrates that using the first one
+  dominant basis function approximation can lead to 2\% error, which
+  leads to very compact EM models with sufficient accuracy.
 
 
 \end{abstract}
@@ -105,22 +105,19 @@
 %The results
 \input experimental_results.tex
 
-
-
-
 \section{Conclusion}
 \label{sec:conclusion}
-In this paper, we have proposed a new analysis method for
-multi-segment wires considering EM effects during the void nucleation
-phase, which can be used for practical VLSI interconnect design
-techniques.  An exact series solution to the stress evolution equation
-for multi-segment wires has been derived by using the Laplace
-transformation technique. The obtained physics-based analytic EM model
-results are in good agreement with the calculation by the finite element
-analysis tool COMSOL. Experiment results demonstrate that using the
-first dominant term approximation of the exact series solution can
-lead to around 2\% error, which satisfies the requirement of practical
-EM reliability analysis.
+In this paper, we have proposed a new analysis method for EM stress
+evolution during the void nucleation phase for multi-segment wires
+commonly seen in practical VLSI layouts, which can be used for
+practical VLSI interconnect design techniques.  An exact series
+solution to the stress evolution expression for multi-segment wires
+has been derived by using the Laplace transformation technique. The
+obtained physics-based analytic EM model results are in good agreement
+with the calculation by the finite element analysis tool
+COMSOL. Experiment results demonstrate that using the first dominant
+term approximation of the exact series solution can lead to around 2\%
+error, which leads to very compact EM models with sufficient accuracy.
 
 \bibliographystyle{ieeetr}
 
