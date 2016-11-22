@@ -4,7 +4,7 @@
 Electromigration is considered as the top killer for today's copper
 dual damascene interconnect technology. Recently there is a renewed
 interest in EM modeling and mitigation techniques as EM-induced
-reliability is getting worse as technology advance.  ITRS predicts
+reliability is becoming worse as technology advances.  ITRS predicts
 that the EM-induced lifetime of the interconnects will be reduced by
 half by each generation~\cite{ITRS}. To make this situation even
 worse, many widely used EM models such as Black-Blech models are
@@ -12,25 +12,24 @@ thought to be too conservative, which can lead to significant over
 designs~\cite{Bailey:semieng}.
 
 Existing EM model and analysis techniques mainly focus on the simple
-straight line interconnect with two line end
-terminals~\cite{deOrio:2010}.  Existing widely used EM models such as
-Blech limit \cite{Blech:1976ko} (for the out filtration of immortal
-segments) and Black's equation \cite{Black:1969fc} (for calculating
-MTTFs for segments characterized by known current densities and
-temperatures) are subjects of the hard criticism
+straight line interconnect with two end terminals~\cite{deOrio:2010}.
+Existing widely used EM models such as Blech limit \cite{Blech:1976ko}
+(for the out filtration of immortal segments) and Black's equation
+\cite{Black:1969fc} (for calculating MTTFs for segments characterized
+by known current densities and temperatures) are subjects of the hard
+criticism
 \cite{Ohring:1998uj}\cite{Lloyd:2008je}\cite{Hauschildt:2013cv} as
-those empirical models are stressing condition dependent and lacks of
+those empirical models are stressing-condition dependent and lack of
 scalability over wide current and temperature stressing
 conditions. More importantly, those models can only be applied to
 simple wire structures.  For practical VLSI chips, the interconnects
 such as clock and power grid networks typically consist of
 multi-branch metal segments representing continuously connected,
 highly conductive metal (Cu) lines within one layer of metallization,
-terminating at diffusion barriers, which are commonly seen in the
-power/ground networks.  The EM effects in those branches are not
-independent and they have to be considered simultaneously.  To further
-illustrate this, we consider a 4-segment and 5-terminal interconnect
-wire loaded with DC voltage distribution as shown in
+terminating at diffusion barriers. The EM effects in those branches
+are not independent and they have to be considered simultaneously.  To
+further illustrate this, we consider a 4-segment and 5-terminal
+interconnect wire loaded with DC voltage distribution as shown in
 Fig.~\ref{fig:4seg-demo}. The finite element analysis (FEA) can be
 used to calculate EM-induced hydrostatic stress along the interconnect
 wire.  The distributions of the hydrostatic stress (top), current
@@ -38,10 +37,10 @@ density (middle) and voltage potential (bottom) along this wire are
 shown in Fig. \ref{fig:4seg-multiplot} respectively. As we can see
 that although the segment 2 has almost zero current density, its
 tensile (positive) stress is the highest. Hence it is no longer valid
-to analyze the EM-induced back stress for each individual wire
-segment separately as with existing methods. As a result, we have to
-analyze all the stress evolution as a whole instead of treating each
-segment separately as done in the existing EM assessment methods.
+to analyze the EM-induced back stress for each individual wire segment
+separately as with existing methods. As a result, we have to analyze
+all the stress evolution as a whole instead of treating each segment
+separately as done in the existing EM assessment methods.
 
 \begin{figure}[h]
 \centering
