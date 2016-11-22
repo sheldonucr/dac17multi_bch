@@ -7,7 +7,7 @@ interconnect wires as shown in Fig.~\ref{fig:4seg-demo}. To facilitate
 our analysis, we are looking at an abstract general multi-segment
 interconnect structure with one continuous metallization layer shown in
 Fig.\ref{fig:interconnect_tree}, which represents a long metal wire
-with $n$ segments and $n+1$ terminal (vias) (presented by blue blocks)
+with $n$ segments and $n+1$ terminals (vias) (presented by blue blocks)
 connecting different metal layers.  Since many complex interconnect
 structures such as power grids could be decomposed hierarchically into
 smaller interconnect tree components like this structure, the accurate
@@ -54,7 +54,7 @@ x}+G_{n})],\;l_{n-1}\leq x \leq l_n.
  In \eqref{eq:general_interconnect_tree}, $\kappa_{i}$ and $G_i$
  ($i=1,2,\cdots,n$) are the stress diffusivity and the EM driving
  force for each segment wire. Boundary conditions for these equations
- are given as the follows:
+ are given as follows:
  \begin{equation} \label{bc:general_interconnect_tree}\small
 \begin{split}
 &\kappa_1(\frac{\partial \sigma_1}{\partial x}+G_1)=0,\;x=l_0,\\
@@ -92,11 +92,11 @@ x}+G_n)=0,\;x=l_n.
 &\frac{d^2\hat{\sigma}_{n-1}(x,s)}{dx^2}=\frac{s}{\kappa_{n-1}}\hat{\sigma}_{n-1}(x,s),\;l_{n-2}\leq x\leq l_{n-1},\\
 &\frac{d^2\hat{\sigma}_{n}(x,s)}{dx^2}=\frac{s}{\kappa_{n}}\hat{\sigma}_{n}(x,s),\;l_{n-1}\leq x\leq l_{n},
  \end{split}
- \end{equation} 
+ \end{equation}
 where $\hat{\sigma}_{i}(x,s)=\int_0^{+\infty}e^{-st}\sigma_{i}(x,t)dt\;(i=1,2,\cdots,n)$ is the Laplace transform of $\sigma_{i}(x,t)$.
-By using the Laplace transform of the boundary conditions \eqref{bc:general_interconnect_tree}, 
+By using the Laplace transform of the boundary conditions \eqref{bc:general_interconnect_tree},
 the analytical solution $\hat{\sigma}_{i}(x,s)$ of \eqref{eq:multi_segment_ode} can be obtained in the Laplace domain. Due to limit space,
-we omit the derivation process of obtaining $\hat{\sigma}_{i}(x,s)$. 
+we omit the derivation process of obtaining $\hat{\sigma}_{i}(x,s)$.
 
 By taking the inverse Laplace transform of $\hat{\sigma}_{i}(x,s)$, we
 can obtain the analytical solution $\sigma_i(x,t)$ for each PDE in
@@ -126,7 +126,7 @@ expression of $\sigma_i(x,t)$, we introduce the following notations:
    \right.
 \end{split}
 \end{equation}
-where $n$ is the number of segments, $i$ $(i=1,2,\cdots,n)$ is the index of current segment, and $p$ is an integer from $1$ to $n-1$.
+where $m$ is a nonnegative integer, $n$ is the number of segments, $i$ $(i=1,2,\cdots,n)$ is the index of current segment, and $p$ is an integer from $1$ to $n-1$.
 
 Similar to the analytical method introduced in
 \cite{ChenHuang:DAC'15}, we first introduce the following basic
@@ -145,9 +145,9 @@ $(i=1,2,\cdots,n)$ segment can be derived as follows
 \begin{equation} \label{eq:general_solution}\small
 \begin{split}
 &\sigma_{i}(x,t)=-\sum\limits_{m=0}^{+\infty}\{G_ng(\xi_{n,1}^{i}(m,x),t)-G_1g(\xi_{n,2}^{i}(m,x),t)\\
-&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(m,x),t)-g(\xi_{n,2p+2}^{i}(m,x),t))\}\\
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(m,x),t)+g(\xi_{n,2p+2}^{i}(m,x),t))\}\\
 &-\sum\limits_{m=0}^{+\infty}\{G_ng(\eta_{n,1}^{i}(m,x),t)-G_1g(\eta_{n,2}^{i}(m,x),t)\\
-&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(m,x),t)-g(\eta_{n,2p+2}^{i}(m,x),t))\}.
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(m,x),t)+g(\eta_{n,2p+2}^{i}(m,x),t))\}.
  \end{split}
  \end{equation}
 
@@ -163,9 +163,9 @@ $(i=1,2,\cdots,n)$ segment can be derived as follows
 \begin{equation} \label{eq:approximate_solution}\small
 \begin{split}
 &\sigma_{i}(x,t)\approx-\{G_ng(\xi_{n,1}^{i}(0,x),t)-G_1g(\xi_{n,2}^{i}(0,x),t)\\
-&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(0,x),t)-g(\xi_{n,2j+2}^{i}(0,x),t))\}\\
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\xi_{n,2p+1}^{i}(0,x),t)+g(\xi_{n,2j+2}^{i}(0,x),t))\}\\
 &-\{G_ng(\eta_{n,1}^{i}(0,x),t)-G_1g(\eta_{n,2}^{i}(0,x),t)\\
-&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(0,x),t)-g(\eta_{n,2p+2}^{i}(0,x),t))\}.
+&-\sum\limits_{p=1}^{n-1}\frac{G_{p+1}-G_p}{2}(g(\eta_{n,2p+1}^{i}(0,x),t)+g(\eta_{n,2p+2}^{i}(0,x),t))\}.
  \end{split}
  \end{equation}
  By just use a few dominant terms, we can obtain the very compact EM
@@ -174,7 +174,7 @@ $(i=1,2,\cdots,n)$ segment can be derived as follows
  $\sigma_{i}(x,t)$ reaches a critical stress $\sigma_{crit}$, then the
  void nucleation time $t_{nuc}$ can be calculated for each segment by
  solving the equation $\sigma_{i}(x,t_{nuc})=\sigma_{crit}$.
- 
+
  % It should be noted that the present analysis method in analytical
  % characterization is similar to what has been reported in our early
  % work of analytical modeling of electromigration for multi-branch
